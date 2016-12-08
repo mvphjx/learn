@@ -1,0 +1,19 @@
+线程
+
+线程池
+
+
+经典线程池
+ThreadPoolExecutor
+继承关系
+Executor》ExecutorService》AbstractExecutorService》ThreadPoolExecutor
+
+主要成员属性
+BlockingQueue<Runnable>
+ReentrantLock
+HashSet<Worker>
+Condition
+
+volatiles 》》
+ThreadFactory
+RejectedExecutionHandler

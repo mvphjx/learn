@@ -1,0 +1,12 @@
+http://blog.csdn.net/cq1982/article/details/46356599
+
+zookeeper是一个为分布式应用提供一致性服务的软件，它是开源的Hadoop项目中的一个子项目
+
+
+分布式锁：
+利用zookeeper节点实现分布式锁
+
+1 create lock
+2 lock
+3 do something
+4 unlock
