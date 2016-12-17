@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+	<head> 
+	<meta http-equiv="Content-Type" content="text/html; charset=gb2312" /> 
+	<title>jquery div提示框渐隐弹出与隐藏</title> 
+	<script src="../../js/jquery/jquery.js"></script>  
+	<style> 
+		*{margin:0;padding:0;font-size:12px;} 
+		input{width:120px;height:30px;cursor:pointer;} 
+		#note{position:absolute;width:150px;padding:8px;background:#eee;border:1px solid #ccc;left:40%;z-index:9999;display:none;} 
+	</style> 
+
+	<script> 
+		
+		$(function(){ 
+			$('input').click(function(){ 
+				if(!$('#note').is(':visible')){ 
+					$('#note').css({display:'block', top:'-100px'}).animate({top: '+100'}, 500, function(){ 
+						out(10); 
+					}); 
+				}
+			}); 
+		}); 
+		function out(ntime){
+			var setTime=setInterval(function(){
+                if(ntime<=0){
+					$('#note').animate({top:'0'}, 500, function(){ 
+						$(this).css({display:'none', top:'-100px'}); 
+					}); 
+					clearInterval(setTime);
+                }
+                $('#input1').val("同意"+"("+ntime+")");
+                ntime--;
+            },1000);		
+		}
+	</script> 
+	</head> 
+
+	<body> 
+		<div id="note">长时间不操作，将要放弃任务
+		<div>
+		<input type=button id="input1" value="同意"></input>
+		<input type=button id="input2" value="不同意"></input>
+		</div>
+		
+		</div> 
+		<input type="button" id=time value="点我，3s后消失" /> 
+	</body> 
+</html>
