@@ -12,12 +12,16 @@ package com.learn.hanjx.io;
  *win7开启telnet功能
  *telnet ip 9000  （非127.0.0.1）
  */
-import java.io.*;
-import java.nio.*;
-import java.nio.channels.*;
-import java.nio.channels.spi.*;
-import java.net.*;
-import java.util.*;
+
+import java.net.InetAddress;
+import java.net.InetSocketAddress;
+import java.net.Socket;
+import java.nio.channels.SelectionKey;
+import java.nio.channels.Selector;
+import java.nio.channels.ServerSocketChannel;
+import java.nio.channels.SocketChannel;
+import java.util.Iterator;
+import java.util.Set;
 
 public class TestNio {
 
@@ -31,7 +35,7 @@ public class TestNio {
 		// 建立Channel 并绑定到9000端口
 		ServerSocketChannel ssc = ServerSocketChannel.open();
 		InetSocketAddress address = new InetSocketAddress(
-				InetAddress.getLocalHost(), 9000);
+				InetAddress.getLocalHost(), 9797);
 		ssc.socket().bind(address);
 
 		// 使设定non-blocking的方式。

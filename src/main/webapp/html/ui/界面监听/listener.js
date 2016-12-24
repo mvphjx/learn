@@ -1,68 +1,58 @@
+Listener.prototype.settings=null;
+Listener.prototype.object=null;
+//为了实现单例,外界不要修改
+Listener.prototype.unique=null;
 /**
- * timeout 倒计时时间 秒
- * msg  需要提示的信息
- * success 同意后执行的方法
- * 
+ * 创建一个监听方法，监听页面操作，如果一直无操作，时间到后，执行指定方法。
+ * 然后重置时间，继续监听。
+ * {success:,timeout:,id:}
+ * @param success	监听超时后，执行的方法
+ * @param timeout 监听时间 秒
+ * @param id 需要监控的  页面对象 id 缺省值为整个页面对象
  */
-ScreenSaver.prototype.nTimeout=10000;
-ScreenSaver.prototype.settings=null;
-ScreenSaver.prototype.success=null;
-ScreenSaver.prototype.msg=null;
-function ScreenSaver(settings){     
-    this.settings = settings;         
-    this.nTimeout = this.settings.timeout;        
+function Listener(settings){       
+    if( typeof Listener.unique != 'undefined' ){
+        return Listener.unique; 
+    }
+    this.settings = settings;
+    if( typeof this.settings.id == 'undefined' ){
+    	this.object = $(document);
+    }else{
+    	this.object = $("#"+this.settings.id);
+    }
+    
+    Listener.unique = this;
+} 
+Listener.prototype.init = function(){
     // link in to body events 
-    var nThis = this;
-    //$(document).mousemove(this.onevent);//一直监听消耗资源
-    $(document).mousedown(this.onevent);     
-    $(document).keydown(this.onevent);     
-    $(document).keypress(this.onevent);
+    //this.object.bind("mousemove",this.start);//一直监听此事件消耗资源
+	this.object.bind("mousedown",this.start);
+	this.object.bind("keydown",this.start);
+	this.object.bind("keypress",this.start);
     this.start(); 
-}     
-ScreenSaver.prototype.start = function(){
-    var pThis = this;     
-    var f = function(){pThis.timeout();}     
-    this.timerID = window.setTimeout(f, this.nTimeout); 
 }
-
-ScreenSaver.prototype.timeout = function(){     
-    if ( !this.saver ){     
-		if(!$('#note').is(':visible')){ 
-				$('#note').css({display:'block', top:'-100px'}).animate({top: '+100'}, 500, function(){ 
-					out(10); 
-				}); 
-		}
-		function out(ntime){
-			var setTime=setInterval(function(){
-                if(ntime<=0){
-					$('#note').animate({top:'0'}, 500, function(){ 
-						$(this).css({display:'none', top:'-100px'}); 
-					}); 
-					clearInterval(setTime);
-                }
-                $('#input1').val("同意"+"("+ntime+")");
-                ntime--;
-            },1000);		
-		}
-    }     
+/*
+ * 监听：超时倒计时
+ */
+Listener.prototype.start = function(){
+	var nthis = new Listener();
+	if(typeof nthis.timerID != 'undefined'){
+		 window.clearTimeout(nthis.timerID);
+	}
+	nthis.timerID = window.setTimeout(success, nthis.settings.timeout*1000);
+	function success(){
+		nthis.stop();
+		nthis.settings.success();
+	}
 }  
-ScreenSaver.prototype.stop = function(){ 
-	alert(1);
-}    
-ScreenSaver.prototype.signal = function(){     
-//    if ( this.saver ){     
-//        this.stop();     
-//    }         
-    window.clearTimeout(this.timerID);
-    console.log(this.timerID);
-    var pThis = this;     
-    var f = function(){pThis.timeout();}     
-    this.timerID = window.setTimeout(f, this.nTimeout);     
-}     
-    
-ScreenSaver.prototype.onevent = function(e){    
-	saver.signal();
-	console.log(e.type);
-}     
-    
-    
+/*
+ * 停止页面监听
+ *  例如 已经放弃任务
+ *     已经弹出窗口
+ */
+Listener.prototype.stop = function(){
+	var nthis = new Listener();
+	nthis.object.unbind("mousedown",nthis.start);
+	nthis.object.unbind("keydown",nthis.start);
+	nthis.object.unbind("keypress",nthis.start);
+}

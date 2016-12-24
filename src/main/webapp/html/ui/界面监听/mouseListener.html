@@ -8,23 +8,15 @@
 		#note{position:absolute;width:150px;padding:8px;background:#eee;border:1px solid #ccc;left:40%;z-index:9999;display:none;} 
 	</style> 
 <script type="text/javascript">     
-var saver;     
-function initScreenSaver(){     
-    //blort;     
-    saver = new ScreenSaver({timeout:5000});     
-}      
-initScreenSaver();        
+var ls=new Listener({timeout:5,success:function(){alert(1);ls.init();}});
+ls.init();
+
 </script>     
     </head>     
     <body>     
-<p>5s  nomove  window.location = 'http://www.baidu.com';</p>
+<p>5s  {timeout:5,success:alert(1)}</p>
 
-		<div id="note">长时间不操作，将要放弃任务
-		<div>
-		<input type=button id="input1" value="同意"></input>
-		<input type=button id="input2" value="不同意"></input>
-		</div>
-		
+		<div id="note">{timeout:5,success:alert(1)}
 		</div> 
     </body>     
 </html> 

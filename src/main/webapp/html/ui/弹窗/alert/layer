@@ -1,0 +1,15 @@
+layer.open({
+  content: 'test',
+  type :3, //0（信息框，默认）1（页面层）2（iframe层）3（加载层）4（tips层）
+  title:false,
+  content:"is not?!!",
+  btn: ['按钮一', '按钮二', '按钮三'],
+  yes: function(index, layero){
+    //按钮【按钮一】的回调
+  },btn2: function(index, layero){
+    //按钮【按钮二】的回调
+  },btn3: function(index, layero){
+    //按钮【按钮三】的回调
+  },
+  time:100
+});
