@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title></title>
+	</head>
+
+	<body>
+
+	</body>
+	<script>
+		var Person = function(name) {
+			this.name=name;
+		}
+		Person.prototype.eat = function(food) {
+			if(typeof food =='string'){
+				console.log(this.name+"*****"+food);
+			}else{
+				alert(food);
+			}
+		}
+		Person.prototype.name = null;
+		
+		
+		console.log("demo arry and  object");
+		var json = {};
+		json['group1']=[];
+		json['group1'].push(new Person("xiaoming"))
+		json['group1'].push(new Person("xiaohong"))
+		json['group2']=[];
+		json['group2'].push(new Person('xiaoming'))
+		json['group2'].push(new Person("xiaohong"))
+		
+		for(var key in json){
+			var persons = json[key]
+			console.log("group:"+key)
+			for(var i=0,l=persons.length;i<l;i++){
+				var person =persons[i]
+				person.eat("apple")
+			}	
+		}
+		
+		console.log("/n/ndemo json key  and  object");
+		
+		
+		var json = {};
+		json['group1']={};
+		json['group1']['xiaoming'] = {}
+		json['group1']['xiaoming'] = new Person("xiaoming")
+		json['group1']['xiaohong'] = {}
+		json['group1']['xiaohong'] = new Person("xiaohong")
+		json['group2']=[];
+		json['group2']['xiaoming'] = {}
+		json['group2']['xiaoming'] = new Person("xiaoming")
+		json['group2']['xiaohong'] = {}
+		json['group2']['xiaohong'] = new Person("xiaohong")
+		
+		for(var key in json){
+			var persons = json[key]
+			console.log("group:"+key)
+			for(var key2 in persons){
+				console.log("group:"+key2)
+				var person =persons[key2]
+				person.eat("apple")
+			}	
+		}
+		
+		var demo = json['group2'];
+		demo['xiaogang']=new Person("xiaogang");
+		console.log(demo['xiaogang'])
+		console.log(json)
+	</script>
+
+</html>
