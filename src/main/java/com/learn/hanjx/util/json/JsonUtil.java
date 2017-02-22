@@ -5,6 +5,7 @@ import java.util.Date;
 
 import com.fasterxml.jackson.core.JsonGenerationException;
 import com.fasterxml.jackson.core.JsonParseException;
+import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.learn.hanjx.jpa.bean.Person;
@@ -78,6 +79,10 @@ public class JsonUtil {
 		String json  = createJsDataByJackson(person);
 		System.out.println(json);
 		person = createObjectByJackson(json, Person.class);
+		System.out.println(person);
+		
+		String jsonstr = "{\"id\":57,\"name\":\"xiaoMing\",\"gender\":\"MAN\",\"info\":\"\\{\"abc\":57\\}\",\"filebyte\":null,\"imagepath\":null,\"idcard\":null,\"BIRTH_DAY\":1487758117137}" ;
+		person = createObjectByJackson(jsonstr, Person.class);
 		System.out.println(person);
 	}
 
