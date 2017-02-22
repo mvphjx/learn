@@ -8,6 +8,10 @@ public class Test {
 	
 	public static void main(String[] args) {
 		
+		/*
+		 * Bridge接口定义桥梁，根据注入的对象，实现不同功能
+		 * 依赖注入    ； 让Bridge Sourceable的实现类  松耦合
+		 */
 		Bridge bridge = new MyBridge();
 		
 		/*调用第一个对象*/

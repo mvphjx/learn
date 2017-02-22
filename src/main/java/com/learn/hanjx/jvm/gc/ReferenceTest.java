@@ -1,4 +1,4 @@
-﻿package com.learn.hanjx.jvm.back;
+﻿package com.learn.hanjx.jvm.gc;
 /**
  * jvm回收机制
  *

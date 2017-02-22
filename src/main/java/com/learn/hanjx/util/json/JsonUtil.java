@@ -74,14 +74,15 @@ public class JsonUtil {
     	Person person = new Person();
     	person.setId(57);
     	person.setBirthDay(new Date());
-    	person.setInfo("remark");
+    	person.setInfo("{"+"\""+"abc"+"\""+":57}");
     	person.setName("xiaoMing");
 		String json  = createJsDataByJackson(person);
 		System.out.println(json);
 		person = createObjectByJackson(json, Person.class);
 		System.out.println(person);
 		
-		String jsonstr = "{\"id\":57,\"name\":\"xiaoMing\",\"gender\":\"MAN\",\"info\":\"\\{\"abc\":57\\}\",\"filebyte\":null,\"imagepath\":null,\"idcard\":null,\"BIRTH_DAY\":1487758117137}" ;
+		String jsonstr = "{\"id\":57,\"name\":\"xiaoMing\",\"gender\":\"MAN\",\"info\":\"{\\\"abc\\\":57}\",\"filebyte\":null,\"imagepath\":null,\"idcard\":null,\"BIRTH_DAY\":1487758117137}" ;
+		System.out.println(jsonstr);
 		person = createObjectByJackson(jsonstr, Person.class);
 		System.out.println(person);
 	}

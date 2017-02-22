@@ -1,0 +1,142 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title>寻路算法</title>
+	</head>
+<style>
+*{margin:0;padding: 0;}
+	#box{
+		height:auto;
+		overflow:hidden;
+		margin: 40px auto 30px;
+		border: 1px solid #000000;
+		border-right:none ;
+		border-bottom: none;
+		}
+		li{list-style: none;}
+		input{display: block;}
+		#box li.start{background: red;}
+		#box li.end{background: yellow;}
+		#box li.blue{background: blue;}
+</style>
+	<body>
+		<ul id=box>
+			
+		</ul>
+		<input />
+	</body>
+	<script>
+	var box = document.getElementById("box")
+	var aLi=box.getElementsByTagName('li');
+	var size = 20;
+	var oInput = document.getElementById("")
+	var openArr=[];
+	var closeArr=[]
+	var map=[
+		//1  ->2  3
+	  //0,1,2,3,4,5,6,7,8,9,
+0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,3,3,3,3,3,3,3,3,3,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+	];
+	var cols = Math.sqrt(map.length)
+	init();
+	function init(){
+		creatMap()
+	}
+	function creatMap(){
+		box.style.width=cols*(size+1)+"px";
+		for(var i=0;i<map.length;i++){
+			var OLi=document.createElement("li");
+			OLi.style.width=size+"px"
+			OLi.style.height=size+"px"
+			box.appendChild(OLi)
+			if(map[i]==1){
+				OLi.className="start"
+				openArr.push(OLi)
+			}else if(map[i]==2){
+				OLi.className="end"
+			}else if(map[i]==3){
+				OLi.className="blue"
+				closeArr.push(OLi)
+			}
+			
+		}
+	}
+	var startli=box.getElementsByClassName("start")
+	var endli=box.getElementsByClassName("end")
+
+//估价函数
+	function f(node){
+		return g(node)+h(node)
+	}
+	function g(node){
+		var b= startli[0].offsetLeft
+		-node.offsetLeft;
+		var a = startli[0].offsetTop
+		-node.offsetTop;
+		return Math.sqrt(a*a+b*b);//c
+		
+	}
+	function h(node){
+		var b= endli[0].offsetLeft
+		-node.offsetLeft;
+		var a = endli[0].offsetTop
+		-node.offsetTop;
+		return Math.sqrt(a*a+b*b);//c
+	}
+	//implement 程序实现
+	function openFn(){//收集
+		var newli =openArr.shift();
+		colseFn(newli)
+		//找相邻的位置
+		lookup(newli)
+	}
+	function colseFn(newli){//排除
+		colseArr.push(newli)
+	}	
+	function lookup(newli){
+		var result=[]
+		var x = newli.offsetLeft;
+		var y = newli.offsetTop;
+		for (var i=1;i<aLi.length;i++) {
+			var xx = newli.offsetLeft;
+			var yy = newli.offsetTop;
+			if(Math.abs(xx-x)>20||
+			Math.abs(yy-y)>20){
+				return;
+			}
+			if(filter(aLi[i])){
+				result.push(aLi[i])	
+			}
+		}
+		
+	}
+	//节点过滤  障碍物
+	function filter(li){
+		var  bool = false;
+		for (var i =0;i<colseArr.lengt;i++h) {
+			if(colseArr[i]==li){
+				return false
+			}else{
+				return true;
+			}
+		}
+		return  bool;
+		
+	}
+	
+	</script>
+
+</html>
