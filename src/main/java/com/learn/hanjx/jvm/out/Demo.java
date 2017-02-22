@@ -11,7 +11,7 @@ import java.util.Arrays;
 import java.util.List;
 public class Demo {
 	public static  void  main(String [] args) throws Exception{
-		getNumChange("0001");
+		//getNumChange("0001");
 		getOutOfMemory();
 	}
 	/**
@@ -30,6 +30,8 @@ public class Demo {
 	 * 一直往集合（List Map）中增加数据
 	 * 测试  java.lang.OutOfMemoryError: Java heap space
 	 * 堆内存溢出
+	 * -Xmx40m -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=E:\Java\dump  
+	 * 记录堆信息  方便报错查看 -Xmx40m 可选
 	 */
 	private static void getOutOfMemory(){
 		Long time1  = System.currentTimeMillis();
