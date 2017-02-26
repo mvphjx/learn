@@ -1,8 +1,10 @@
-﻿package com.learn.hanjx.aop.springaop;
+﻿package com.learn.hanjx.aop.jdkproxy;
 
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 import java.lang.reflect.InvocationHandler;
+
+import org.hibernate.annotations.Persister;
 /**
  * AOP处理器.   
 可生成代理对象，同时可以根据设置的前置或后置处理对象分别在方法执行前后执行一些另外的操作
@@ -28,21 +30,22 @@ public class AopHandler implements InvocationHandler {
                             target.getClass().getClassLoader(),   
                             target.getClass().getInterfaces(),this); 
               return obj;   
-       }   
+       }  
        
        /**
         * 生成动态代理对象. 
-        * class com.sun.proxy.$Proxy4
-        * @param target 代理目标对象
-        * @return 返回动态代理包装后的对象
+        * 
+        * 这是一个错误的方法
+        * 	必须生成 缓存 目标对象
         */
-       public Object getObject(Class c) { 
+       @Deprecated
+       public <T>T getObject(Class<T> c) { 
               //设置代理目标对象
               //根据代理目标对象生成动态代理对象
-               this.target= Proxy.newProxyInstance(
-                            c.getClassLoader(),   
-                            c.getInterfaces(),this);   
-              return target;   
+    	   this.target = Proxy.newProxyInstance(
+                   c.getClassLoader(),   
+                   c.getInterfaces(),this);
+              return (T)this.target;
        }  
 
        /**

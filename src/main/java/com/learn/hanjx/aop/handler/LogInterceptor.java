@@ -1,4 +1,4 @@
-﻿package com.learn.hanjx.aop;
+﻿package com.learn.hanjx.aop.handler;
 /**
  运行LogInterceptor类我们可以发现，它实现了前面所需要的功能，但是很好的将业务逻辑方法的代码和日志记录的代码分离开来，
  并且所有的业务处理对象都可以利用该类来完成日志的记录，防止了重复代码的出现，
@@ -23,11 +23,11 @@ public class LogInterceptor implements InvocationHandler {
 
     /**
      *方法的调用.
-     *@paramproxy
-     *@parammethod对应的方法
-     *@paramargs方法的参信息
-     *@return返回操作结果对象
-     *@throwsThrowable
+     *@param proxy 执行getclass之外的方法 会形成递归死循环
+     *@param method对应的方法
+     *@param args方法的参信息
+     *@return 返回操作结果对象
+     *@throws Throwable
      */
      @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {

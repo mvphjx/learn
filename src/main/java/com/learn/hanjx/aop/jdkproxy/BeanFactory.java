@@ -1,4 +1,4 @@
-﻿package com.learn.hanjx.aop.springaop;
+﻿package com.learn.hanjx.aop.jdkproxy;
 /**
  *   对于在配置文件中对某个bean配置前置或后置处理器，
  *   我们可以在bean中增加两个属性aop和aopType，

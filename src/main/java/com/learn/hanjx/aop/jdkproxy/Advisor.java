@@ -1,9 +1,10 @@
-﻿package com.learn.hanjx.aop.springaop;
+﻿package com.learn.hanjx.aop.jdkproxy;
 
 import java.lang.reflect.Method;
 
 /**
- *顾问接口类.
+ *顾问接口接口
+ *切面逻辑（advise） 
  */
 public interface Advisor {   
 
