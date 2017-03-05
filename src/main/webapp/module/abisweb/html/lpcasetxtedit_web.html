@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+	</head>
+
+	<body>
+		<div class="edit" id="caseeditpage">
+			<h4 id=BasicInfo>基本信息</h4>
+			<div class="form" setting="{'id':'mainInfo_And_ceNum','dataType':'1'}">
+				<label id="ceNumId">案事件号码</label>
+			</div>
+			<div class="form" setting="{'id':'mainInfo_And_dbid',dataType:'0','columnName':'DBCodeName_And_2'}">
+				<label id="dbidId">数据库</label>
+			</div>
+			<div class="form" setting="{'id':'mainInfo_And_ceStatus',dataType:'0','columnName':'CASE_EVENT|CE_STATUS'}">
+				<label id="ceStatusId">案事件状态</label>
+			</div>
+			<div class="form" setting="{'id':'mainInfo_And_ceType',dataType:'0','columnName':'CASE_EVENT|CE_TYPE'}">
+				<label id="ceTypeId">案事件类型</label>
+			</div>
+			<div class="form" setting="{'id':'mainInfo_And_createUser',dataType:'1'}">
+				<label id="createUserId">创建人</label>
+			</div>
+			<div class="form" setting="{'id':'mainInfo_And_createUnitCode',dataType:'1','columnName':'CASE_EVENT|CREATE_UNIT_CODE','all':'false'}">
+				<label id="createUnitCodeId">创建单位代码</label>
+			</div>
+			<div class="form" setting="{'id':'mainInfo_And_createTime',dataType:'2'}">
+				<label id="createTimeId">创建时间</label>
+			</div>
+			<div class="form" setting="{'id':'mainInfo_And_updateUnitCode',dataType:'1','columnName':'CASE_EVENT|CREATE_UNIT_CODE','all':'false'}">
+				<label id="updateUnitCodeId">更新单位代码</label>
+			</div>
+			<div class="form" setting="{'id':'mainInfo_And_updateUser',dataType:'1'}">
+				<label id="updateUserId">更新人</label>
+			</div>
+			<div class="form" setting="{'id':'mainInfo_And_updateTime',dataType:'2'}">
+				<label id="updateTimeId">更新时间</label>
+			</div>
+			<div class="form" setting="{'id':'mainInfo_And_ceName',dataType:'1'}">
+				<label id="ceNameId">案事件名称</label>
+			</div>
+			<div class="form" setting="{'id':'mainInfo_And_comments',dataType:'3'}">
+				<label id="commentsId">备注</label>
+			</div>
+
+			<h4 id="BasicInfo">案件信息</h4>
+			<div class="form" setting="{'id':'caseTextInfo_And_BasicInfo_And_CEOccurPlaceCode',dataType:'0','all':'false'}">
+				<label id="CEOccurPlaceCodeId">案发地点代码</label>
+			</div>
+			<div class="form" setting="{'id':'caseTextInfo_And_BasicInfo_And_CEOccurPlace',dataType:'1'}">
+				<label id="CEOccurPlaceId">案发地点</label>
+			</div>
+			<div class="form" setting="{'id':'caseTextInfo_And_BasicInfo_And_CEOccurDate',dataType:'2'}">
+				<label id="CEOccurDateId">案发时间</label>
+			</div>
+			<div class="form" setting="{'id':'caseTextInfo_And_BasicInfo_And_HasPersonKilled',dataType:'0','columnName':'CASE_TEXT_INFO|HAS_PERSON_KILLED'}">
+				<label id="HasPersonKilledId">是否命案</label>
+			</div>
+			<div class="form" setting="{'id':'caseTextInfo_And_BasicInfo_And_SuperviseLevel',dataType:'0','columnName':'CASE_TEXT_INFO|SUPERVISE_LEVEL'}">
+				<label id="SuperviseLevelId">协查级别</label>
+			</div>
+			<div class="form" setting="{'id':'caseTextInfo_And_BasicInfo_And_PersonKilledCnt',dataType:'1'}">
+				<label id="PersonKilledCntId">被杀人数</label>
+			</div>
+			<div class="form" setting="{'id':'caseTextInfo_And_BasicInfo_And_CEClassCode_1',dataType:'0','columnName':'CASE_TEXT_INFO|CEClassCode_1'}">
+				<label id="CEClassCode_1Id">案件类别1</label>
+			</div>
+			<div class="form" setting="{'id':'caseTextInfo_And_BasicInfo_And_CEClassCode_2',dataType:'0','columnName':'CASE_TEXT_INFO|CEClassCode_1'}">
+				<label id="CEClassCode_2Id">案件类别2</label>
+			</div>
+			<div class="form" setting="{'id':'caseTextInfo_And_BasicInfo_And_CEClassCode_3',dataType:'0','columnName':'CASE_TEXT_INFO|CEClassCode_1'}">
+				<label id="CEClassCode_3Id">案件类别3</label>
+			</div>
+			<div class="form" setting="{'id':'caseTextInfo_And_BasicInfo_And_CaseLoss',dataType:'1'}">
+				<label id="CaseLossId">案件损失</label>
+			</div>
+			<div class="form" setting="{'id':'caseTextInfo_And_BasicInfo_And_CESuspiciousAreaCode_1',dataType:'0','all':'false','columnName':'CASE_TEXT_INFO|CE_SUSPICIOUS_AREA_CODE_1'}">
+				<label id="CESuspiciousAreaCode_1Id">可疑地区代码1</label>
+			</div>
+			<div class="form" setting="{'id':'caseTextInfo_And_BasicInfo_And_CESuspiciousAreaCode_2',dataType:'0','all':'false','columnName':'CASE_TEXT_INFO|CE_SUSPICIOUS_AREA_CODE_1'}">
+				<label id="CESuspiciousAreaCode_2Id">可疑地区代码2</label>
+			</div>
+			<div class="form" setting="{'id':'caseTextInfo_And_BasicInfo_And_CESuspiciousAreaCode_3',dataType:'0','all':'false','columnName':'CASE_TEXT_INFO|CE_SUSPICIOUS_AREA_CODE_1'}">
+				<label id="CESuspiciousAreaCode_3Id">可疑地区代码3</label>
+			</div>
+			<div class="form" setting="{'id':'caseTextInfo_And_BasicInfo_And_CEPremium',dataType:'1'}">
+				<label id="CEPremiumId">涉案金额</label>
+			</div>
+			<div class="form" setting="{'id':'caseTextInfo_And_BasicInfo_And_CEComments',dataType:'3'}">
+				<label id="CECommentsId">案情描述</label>
+			</div>
+
+			<h4 id=AcceptInfo>接警信息</h4>
+			<div class="form" setting="{'id':'caseTextInfo_And_AcceptInfo_And_AcceptOperator',dataType:'1'}">
+				<label id="AcceptOperatorId">接警人员</label>
+			</div>
+			<div class="form" setting="{'id':'caseTextInfo_And_AcceptInfo_And_AcceptTime',dataType:'2'}">
+				<label id="AcceptTimeId">接警时间</label>
+			</div>
+			<div class="form" setting="{'id':'caseTextInfo_And_AcceptInfo_And_AcceptUnitCode',dataType:'0','all':'false','columnName':'CASE_TEXT_INFO|ACCEPT_UNIT_CODE'}">
+				<label id="AcceptUnitCodeId">接警单位代码</label>
+			</div>
+			<div class="form" setting="{'id':'caseTextInfo_And_AcceptInfo_And_AcceptUnitName',dataType:'1'}">
+				<label id="AcceptUnitNameId">接警单位名称</label>
+			</div>
+			<div class="form" setting="{'id':'caseTextInfo_And_AcceptInfo_And_AcceptPlace',dataType:'1'}">
+				<label id="AcceptPlaceId">接警地点</label>
+			</div>
+			<div class="form" setting="{'id':'caseTextInfo_And_AcceptInfo_And_AcceptComments',dataType:'3'}">
+				<label id="AcceptCommentsId">备注</label>
+			</div>
+
+			<h4 id=R egisterInfo>立案信息</h4>
+			<div class="form" setting="{'id':'caseTextInfo_And_RegisterInfo_And_RegiApprover',dataType:'1'}">
+				<label id="RegiApproverId">立案人</label>
+			</div>
+			<div class="form" setting="{'id':'caseTextInfo_And_RegisterInfo_And_RegiTime',dataType:'2'}">
+				<label id="RegiTimeId">立案时间</label>
+			</div>
+			<div class="form" setting="{'id':'caseTextInfo_And_RegisterInfo_And_RegiUnitCode',dataType:'0','all':'false','columnName':'CASE_TEXT_INFO|REGI_UNIT_CODE'}">
+				<label id="RegiUnitCodeId">立案单位代码</label>
+			</div>
+			<div class="form" setting="{'id':'caseTextInfo_And_RegisterInfo_And_RegiUnitName',dataType:'1'}">
+				<label id="RegiUnitNameId">立案单位名称</label>
+			</div>
+
+			<h4 id=SolvedCaseInfo>破案信息</h4>
+			<div class="form" setting="{'id':'caseTextInfo_And_SolvedCaseInfo_And_BreakDate',dataType:'2'}">
+				<label id="BreakDateId">破案日期</label>
+			</div>
+			<div class="form" setting="{'id':'caseTextInfo_And_SolvedCaseInfo_And_BreakDateTypeCode',dataType:'0'}">
+				<label id="BreakDateTypeCodeId">破案日期类型</label>
+			</div>
+			<div class="form" setting="{'id':'caseTextInfo_And_SolvedCaseInfo_And_BreakMethodCode',dataType:'0'}">
+				<label id="BreakMethodCodeId">破案方法</label>
+			</div>
+			<div class="form" setting="{'id':'caseTextInfo_And_SolvedCaseInfo_And_BreakMethodDesc',dataType:'3'}">
+				<label id="BreakMethodDescId">破案描述</label>
+			</div>
+
+			<h4 id=ExtractInfo>案件提取信息</h4>
+			<div class="form" setting="{'id':'caseTextInfo_And_ExtractInfo_And_ExtractDate',dataType:'2'}">
+				<label id="ExtractDateId">提取日期</label>
+			</div>
+			<div class="form" setting="{'id':'caseTextInfo_And_ExtractInfo_And_Extractor_1',dataType:'1'}">
+				<label id="Extractor_1Id">提取人1</label>
+			</div>
+			<div class="form" setting="{'id':'caseTextInfo_And_ExtractInfo_And_Extractor_2',dataType:'1'}">
+				<label id="Extractor_2Id">提取人2</label>
+			</div>
+			<div class="form" setting="{'id':'caseTextInfo_And_ExtractInfo_And_Extractor_3',dataType:'1'}">
+				<label id="Extractor_3Id">提取人3</label>
+			</div>
+			<div class="form" setting="{'id':'caseTextInfo_And_ExtractInfo_And_ExtractUnitCode',dataType:'0','all':'false','columnName':'CASE_TEXT_INFO|EXTRACT_UNIT_CODE'}">
+				<label id="ExtractUnitCodeId">提取单位代码</label>
+			</div>
+			<div class="form" setting="{'id':'caseTextInfo_And_ExtractInfo_And_ExtractUnitName',dataType:'1'}">
+				<label id="CASE_TEXT_INFO_And_EXTRACT_UNIT_NAME">提取单位名称</label>
+			</div>
+			<div class="form" setting="{'id':'caseTextInfo_And_ExtractInfo_And_ExtractComments',dataType:'3'}">
+				<label id="ExtractCommentsId">备注</label>
+			</div>
+
+			<h4 id=CancelInfo>撤销信息</h4>
+			<div class="form" setting="{'id':'caseTextInfo_And_CancelInfo_And_CancelDate',dataType:'2'}">
+				<label id="CancelDateId">撤销日期</label>
+			</div>
+			<div class="form" setting="{'id':'caseTextInfo_And_CancelInfo_And_CancelReasonCode',dataType:'0','columnName':'CASE_TEXT_INFO|CANCEL_REASON_CODE'}">
+				<label id="CancelReasonCodeId">撤销原因</label>
+			</div>
+
+		</div>
+		<script data-main="./js/app" src="./js/lib/require.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/ui/combo/webcombo.css" />
+		<link rel="stylesheet" href="css/style.css" type="text/css" />
+		<script>
+			var settings = {};
+			var editPage = null;
+			/*
+			requried  必填项
+			update	更新项
+			defValue 
+			columnlengths 各字段长度
+			type  C 0  RCP 1
+			*/
+			function createForm(requried, update, defValue, columnlengths, type) {
+				type = 1;
+				//对话框语言
+				var dStr = null;
+				var dialogLan = eval('(' + dStr + ')');
+				//ABISWindowUtil.setLanguage(dialogLan);
+				editPage = new EditPage(requried, update, defValue, columnlengths, type);
+				EditPage.prototype.unique.registerChangeListener(txtChange);
+			}
+
+			function getJson() {
+				alert(EditPage.prototype.unique.getObject())
+			}
+
+			function setJson() {
+				EditPage.prototype.unique.setObject(RcpData); //TODO 测试
+			}
+
+			function txtChange(id, value, data) {
+				var txtChanged = EditPage.prototype.unique.isTxtInfoChanged();
+				var v = EditPage.prototype.unique.isPassValidate();
+				var canSave = txtChanged && v;
+				//alert(txtChanged)		
+			}
+			/*	
+			由于控件对特殊字符兼容不好，_And_作为字符串的默认分隔符
+		
+			setting：
+		
+			1）	dataType
+			CODE		: 0,
+			TEXT		: 1,
+			DATE		: 2,
+			MulText		: 3
+		
+		
+			2）	columnName
+			字典配置  表名|列名   
+			（如果字段可以复用用一个字典，可以设置成一样的，提高效率，不设置默认查询 id中的 表名|列名）
+			（数据库为特殊字典，如果是现场卡 'columnName':'DBCodeName_And_2'）
+			DBCodeName: "DBCodeName" 	
+			DBTypeCode:
+			{
+			TENRPINT_DB	: 1,	// 捺印库
+			LATENT_DB	: 2,	// 现场库
+			QUERY_DB	: 3,	// 查询库
+			ADMIN_DB	: 4		// 管理库
+			}
+		
+			3）	all
+			是否全部加载	
+		
+		
+			*/
+		</script>
+		<div>
+			<a onclick="createForm()">createForm</a>
+		</div>
+		<div>
+			<a onclick="setJson()">setJson</a>
+		</div>
+		<div>
+			<a onclick="getJson()">getJson</a>
+		</div>
+
+	</body>
+
+</html>
