@@ -1,4 +1,4 @@
-package com.learn.hanjx.exception;
+package com.learn.hanjx.exceptionAndError;
 /**
  * 包装类 Integer int  自动拆包（自解箱），可能出现空指针
  * @author han

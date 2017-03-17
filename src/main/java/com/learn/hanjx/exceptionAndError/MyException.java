@@ -1,4 +1,4 @@
-﻿package com.learn.hanjx.exception;
+﻿package com.learn.hanjx.exceptionAndError;
 
 import java.io.IOException;
 
