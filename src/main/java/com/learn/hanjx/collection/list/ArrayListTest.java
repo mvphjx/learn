@@ -65,4 +65,15 @@ public class ArrayListTest {
 		System.out.println(list2);
 
 	}
+	@Test
+	public void ListSizeTest() {
+		String[] strs = { "1", "a", "D" };
+		List<String> list = Arrays.asList(strs);
+		if(list.size()>0){
+			//java.lang.UnsupportedOperationException
+			Object obj = list.get(0);
+			list.remove(obj);
+			System.out.println(list.toArray().toString());
+		}
+	}
 }
