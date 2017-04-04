@@ -41,25 +41,21 @@
   <artifactId>javax.mail-api</artifactId>
   <version>1.5.6</version>
 </dependency>
-<!-- https://mvnrepository.com/artifact/junit/junit -->
 <dependency>
     <groupId>junit</groupId>
     <artifactId>junit</artifactId>
     <version>4.8.1</version>
 </dependency>
-<!-- https://mvnrepository.com/artifact/javax.servlet.jsp/jsp-api -->
 <dependency>
     <groupId>javax.servlet.jsp</groupId>
     <artifactId>jsp-api</artifactId>
     <version>2.2</version>
 </dependency>
-<!-- https://mvnrepository.com/artifact/org.apache.tomcat/tomcat-jasper -->
 <dependency>
     <groupId>org.apache.tomcat</groupId>
     <artifactId>tomcat-jasper</artifactId>
     <version>8.0.32</version>
 </dependency>
-<!-- https://mvnrepository.com/artifact/org.apache.zookeeper/zookeeper -->
 <dependency>
     <groupId>org.apache.zookeeper</groupId>
     <artifactId>zookeeper</artifactId>
@@ -75,19 +71,33 @@
   <artifactId>jackson-dataformat-xml</artifactId>
   <version>2.6.3</version>
 </dependency>
-<!-- https://mvnrepository.com/artifact/org.codehaus.jackson/jackson-smile -->
 <dependency>
     <groupId>org.codehaus.jackson</groupId>
     <artifactId>jackson-smile</artifactId>
     <version>1.9.9</version>
 </dependency>
-
 <dependency>
     <groupId>net.sourceforge.cglib</groupId>
     <artifactId>com.springsource.net.sf.cglib</artifactId>
     <version>2.2.0</version>
 </dependency>
-
+<!--mysql-->
+<dependency>
+    <groupId>mysql</groupId>
+    <artifactId>mysql-connector-java</artifactId>
+    <version>5.1.38</version>
+</dependency>
+<!-- 爬虫 -->
+<dependency>
+    <groupId>us.codecraft</groupId>
+    <artifactId>webmagic-core</artifactId>
+    <version>0.6.1</version>
+</dependency>
+<dependency>
+    <groupId>us.codecraft</groupId>
+    <artifactId>webmagic-extension</artifactId>
+    <version>0.6.1</version>
+</dependency>
   </dependencies>
   
   <build>
