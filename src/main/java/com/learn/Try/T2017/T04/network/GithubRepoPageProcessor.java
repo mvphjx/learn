@@ -13,7 +13,7 @@ import us.codecraft.webmagic.selector.Html;
 import us.codecraft.webmagic.selector.Selectable;
 
 public class GithubRepoPageProcessor implements PageProcessor{
-	 public static String siteurl = "http://www.9102.space";
+	 public static String siteurl = "http://www.91p02.space";
 	 private Site site = Site.me().setRetryTimes(3).setSleepTime(100);
 	 public static void main(String[] args) {
 	    	int all = 2750;

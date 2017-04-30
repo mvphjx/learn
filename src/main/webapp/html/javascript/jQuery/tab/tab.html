@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head lang="en-US">
+    <meta charset="UTF-8">
+    <title></title>
+    <link  rel="stylesheet" href="style.css"/>
+    <script type="text/javascript" src="../../../js/jquery/jquery.js"></script>
+	<script type='text/javascript' src="tab.js"></script>
+	
+</head>
+<body>
+
+
+
+<div id="tab">
+    <ul class="tab-nav">
+        <li class="active">1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+    <ul class="tab-wrap">
+        <li class="tab-item active"></li>
+        <li class="tab-item"></li>
+        <li class="tab-item"></li>
+    </ul>
+</div>
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+ var tabdemo=$("#tab").tab({
+        type:"mouseover",
+        effect:"fade",
+        show:2,
+        auto:3000
+   })   
+</script>
+</body>
+</html>
