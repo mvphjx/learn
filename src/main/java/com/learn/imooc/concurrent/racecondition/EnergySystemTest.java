@@ -1,11 +1,11 @@
-package com.learn.imooc.concurrent.racecondition;
+﻿package com.learn.imooc.concurrent.racecondition;
 
 
 public class EnergySystemTest {
 
-	//��Ҫ����������������������������
+	//能量盒子数（线程数）
 	public static final int BOX_AMOUNT = 100;
-	//ÿ�����ӳ�ʼ����
+	//能量总数
     public static final double INITIAL_ENERGY = 1000;
 
     public static void main(String[] args){

@@ -1,15 +1,19 @@
 package com.learn.imooc.concurrent.racecondition;
-
+/**
+ * 能量转化任务
+ * @author han
+ *
+ */
 
 public class EnergyTransferTask implements Runnable{
 
-	//�������������
+	//能量系统
 	private EnergySystem energySystem;
-	//����ת�Ƶ�Դ���������±�
+	//发送者
 	private int fromBox;
-	//��������ת�����Ԫ
+	//能量总数
 	private double maxAmount;
-	//�������ʱ�䣨���룩
+	//延迟
 	private int DELAY = 10;
 	
 	public EnergyTransferTask(EnergySystem energySystem, int from, double max){

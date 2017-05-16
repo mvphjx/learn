@@ -16,7 +16,6 @@ public class Actor extends Thread {
 				try {
 					sleep(1000);
 				} catch (InterruptedException e) {
-					// TODO 自动生成的 catch 块
 					e.printStackTrace();
 				}
 			}

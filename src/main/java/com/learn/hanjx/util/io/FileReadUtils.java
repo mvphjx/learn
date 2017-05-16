@@ -49,7 +49,7 @@ public class FileReadUtils {
 
 	}
 	public static void main(String[] args) throws IOException {
-		BufferedReader bufferedReader=readTxtFileReader("src/com/Try/log/cast/model/shoppinglog.txt");
+		BufferedReader bufferedReader=readTxtFileReader("C:\\Users\\han\\Downloads\\shoppinglog.txt");
 		String lineTxt = null;
 		while ((lineTxt = bufferedReader.readLine()) != null) {
 			System.out.println(lineTxt);

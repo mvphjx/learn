@@ -8,7 +8,8 @@ requirejs.config({
       "app": "../app"
     },
     "shim": {
-        "jquery": ["jquery"]
+        "jquery": ["jquery"],
+        "data": ["data"]
     }
 });
 

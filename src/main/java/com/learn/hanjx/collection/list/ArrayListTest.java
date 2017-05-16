@@ -14,7 +14,9 @@ public class ArrayListTest {
 	public static void main(String[] args) {
 
 	}
-
+	/*
+	 * AsList 获取的是 数组包装类，很多方法没有实现。
+	 */
 	@Test
 	public void AsListTest() {
 		String[] strs = { "1", "a", "D" };
