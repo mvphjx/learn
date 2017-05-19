@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+<script type='text/javascript' src="to-xml.js"></script>
+<script type="text/javascript" src="../../../../jquery/jquery.js"></script>
+
+<HTML>
+
+	<HEAD>
+
+	<BODY>
+<textarea id=demo rows=50 cols=30></textarea>
+	</BODY>
+<script>
+var str = toXML({
+      "person": {
+        "phone": [
+          {"@": {"type": "home"}, "#": "123-555-4567"},
+          {"@": {"type": "cell"}, "#": "890-555-1234"},
+          {"@": {"type": "work"}, "#": "567-555-8901"}
+        ],
+        "email": "john@smith.com"
+      }
+    })
+$("#demo").text(str);
+</script>
+</HTML>
