@@ -1,6 +1,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
 "http://www.w3.org/TR/html4/strict.dtd">
 <script type='text/javascript' src="to-xml.js"></script>
+<script type='text/javascript' src="from-xml.min.js"></script>
+
 <script type="text/javascript" src="../../../../jquery/jquery.js"></script>
 
 <HTML>
@@ -21,6 +23,44 @@ var str = toXML({
         "email": "john@smith.com"
       }
     })
+ 
+
+var demo  = {
+	json:{
+		"?": "xml version=\"1.0\" encoding=\"UTF-8\"",
+		TextFilter:{
+			FirstRowPos:100,
+			MaxRowCount:1000,
+			Projection:[{Pi:"CREATE_UNIT_CODE"},{Pi:"COUNT(CREATE_UNIT_CODE)"}],
+			From:{Table:"MIS_PERSONS"},
+			GroupBy:"CREATE_UNIT_CODE",
+			Having:"COUNT(CREATE_UNIT_CODE)&lt;0",
+			OrderBy:{Oi:[{"@Order": "DESC", "#": "CREATE_UNIT_CODE"}]},
+			Where: {
+				SimpFilter: {
+					Group: {
+						ColNode: [{"@Col": "CREATE_TIME","@Op": "btwn","@Dt": "b",
+									"#": {
+											Arg: [{"@Lt": "const","@Dt":"dt","#":"20150101"},
+									            {"@Lt": "const","@Dt":"dt","#": "20150101"}]							
+										 }
+						}]
+					}
+				},
+				ComplexFilter: {}
+			}	
+		}
+	},
+	xml:'<?xml version="1.0" encoding="UTF-8"?><TextFilter><FirstRowPos>100</FirstRowPos><MaxRowCount>1000</MaxRowCount><Projection><Pi>CREATE_UNIT_CODE</Pi></Projection><Projection><Pi>COUNT(CREATE_UNIT_CODE)</Pi></Projection><From><Table>MIS_PERSONS</Table></From><GroupBy>CREATE_UNIT_CODE</GroupBy><Having>COUNT(CREATE_UNIT_CODE)&amp;lt;0</Having><OrderBy><Oi Order="DESC">CREATE_UNIT_CODE</Oi></OrderBy><Where><SimpFilter><Group><ColNode Col="CREATE_TIME" Op="btwn" Dt="b"><Arg Lt="const" Dt="dt">20150101</Arg><Arg Lt="const" Dt="dt">20150101</Arg></ColNode></Group></SimpFilter><ComplexFilter></ComplexFilter></Where></TextFilter>'
+}
+   /*
+ <person>
+ <phone type="home">123-555-4567</phone>
+ <phone type="cell">890-555-1234</phone>
+ <phone type="work">567-555-8901</phone>
+ <email>john@smith.com</email>
+ </person>
+ */  
 $("#demo").text(str);
 </script>
 </HTML>
