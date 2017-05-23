@@ -1,0 +1,28 @@
+诡异的数组(dom对象封装)
+__proto__
+prototype
+$.fn是个什么鬼？
+
+var Zepto = (function(){
+    var $,
+        zepto = {}
+
+    // ...省略N行代码...
+
+    zepto.init = function(selector, context) {
+        // 函数内容
+    }
+
+
+    $ = function(selector, context){
+        return zepto.init(selector, context)
+    }
+
+    // ...省略N行代码...
+
+    return $
+})()
+window.Zepto = Zepto
+window.$ === undefined && (window.$ = Zepto)
+
+

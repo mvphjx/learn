@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+	<head lang="en-US">
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="../../../js/jquery/jquery.js"></script>
+	</head>
+
+	<body>
+		<script type="text/javascript">
+			console && console.log(jQuery.fn.jquery)
+			//匿名函数 自动执行
+			var a  = function(){
+					console.log("tryAuto");
+			}();
+			//jq闭包
+			(function(){
+				console.log(1)
+			}(typeof window !== "undefined" ? window : this, function( window, noGlobal ) {
+				console.log(2)
+			}));
+		</script>
+	</body>
+
+</html>
