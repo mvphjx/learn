@@ -11,6 +11,7 @@ public class Test {
 	public static void main(String[] args) {
 		List<Object> list = new  ArrayList<>();
 		list.add(new Object());
+		Short.valueOf("");
 
 	}
 

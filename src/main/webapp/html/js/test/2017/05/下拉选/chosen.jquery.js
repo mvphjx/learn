@@ -446,7 +446,7 @@ Copyright (c) 2011 by Harvest
         _this.input_blur(evt);
       });
       this.search_field.keyup(function(evt) {
-      	//搜索功能  触发事件 TODO
+      	//搜索功能  触发事件 TODO  hjx
       	$(".chzn-results").append($('<li id="'+new Date().getTime()+'" class="active-result" style="">han</li>'))
         _this.keyup_checker(evt);
       });

@@ -31,7 +31,7 @@ public class MapIterator {
 		  Iterator<Map.Entry<String, String>> it = map.entrySet().iterator();
 		  while (it.hasNext()) {
 		   Map.Entry<String, String> entry = it.next();
-		   //it.remove();
+		   it.remove();
 		   System.out.println("key= " + entry.getKey() + " and value= " + entry.getValue());
 		  }
 		  
