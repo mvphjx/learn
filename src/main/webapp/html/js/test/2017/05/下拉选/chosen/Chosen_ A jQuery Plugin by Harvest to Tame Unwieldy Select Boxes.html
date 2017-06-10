@@ -1446,6 +1446,21 @@
             <option>Spectacled Bear</option>
           </select>
      </div>
+      <div>
+          <em>Single Select</em>
+          <select data-placeholder="Your Favorite Types of Bear" multiple="" class="chosen-select-width2" tabindex="-1" style="display: none;">
+            <option value=""></option>
+            <option selected="">American Black Bear</option>
+            <option>Asiatic Black Bear</option>
+            <option>Brown Bear</option>
+            <option>Giant Panda</option>
+            <option>Sloth Bear</option>
+            <option>Sun Bear</option>
+            <option>Polar Bear</option>
+            <option>Spectacled Bear</option>
+          </select>
+        </div>
+     
   <script src="jquery.min.js" type="text/javascript"></script>
   <script src="chosen.jquery.js" type="text/javascript"></script>
   <script src="prism.js" type="text/javascript" charset="utf-8"></script>
@@ -1464,9 +1479,13 @@
     	$option.data("ABISCode",{code:1,pinyin:"pinyin",text:"hjx",weight:100,isEditVisible:true})
     	$('.chosen-select-width').append($option)
     	$('.chosen-select-width').trigger("chosen:updated");
-    }
-    
-  </script>
+}
+
+var config2 = {
+	search_contains: true,
+	width: "100%"
+};
+var a = $('.chosen-select-width2').chosen(config2);</script>
   </form>
 
 

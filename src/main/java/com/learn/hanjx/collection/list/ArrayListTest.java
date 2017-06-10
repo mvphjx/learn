@@ -30,26 +30,32 @@ public class ArrayListTest {
 	}
 
 	@Test
-	public void ForEachTest() {
+	public void ForEachRemoveTest() {
 		List<String> list = new ArrayList<>();
 		list.add("0");
 		list.add("1");
 		try {
 			for (String s : list) {
 				if (s.equals("1")) {
-					// ConcurrentModificationException
 					list.remove(s);
 				}
 			}
+			System.out.println("for (String s : list)...  remove : success");
 		} catch (Exception e) {
-			e.printStackTrace();
+			/**
+			 * Returns the cause of this throwable or {@code null} if the
+			 * cause is nonexistent or unknown.  (The cause is the throwable that
+			 * caused this throwable to get thrown.)
+			 */
+			System.out.println("for (String s : list)...  remove :"+e.getCause());//null
+			System.out.println("for (String s : list)...  remove :"+e.getClass());
 		}
 		System.out.println(list);
+		
 		List<String> list2 = new ArrayList<>();
 		list2.add("0");
 		list2.add("1");
 		Iterator<String> it = list2.iterator();
-
 		try {
 			while (it.hasNext()) {
 				/*
@@ -58,11 +64,13 @@ public class ArrayListTest {
 				 */
 				String s = it.next();
 				if ("1".equals(s)) {
-					list2.remove(s);
+					it.remove();
 				}
 			}
+			System.out.println("Iterator<String> it...  remove : success");
 		} catch (Exception e) {
-			e.printStackTrace();
+			
+			System.out.println("Iterator<String> it...   remove :"+e.getCause());
 		}
 		System.out.println(list2);
 
