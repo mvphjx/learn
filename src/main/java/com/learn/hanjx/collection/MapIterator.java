@@ -7,9 +7,13 @@ package com.learn.hanjx.collection;
  * 迭代器API  remove()可用
  * 
  */
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
+
+import org.junit.Test;
 
 public class MapIterator {
 	public static void main(String[] args) {
@@ -47,6 +51,23 @@ public class MapIterator {
 		   System.out.println("value= " + v);
 		  }
 		 }
+	
+	@Test
+	public void test(){
+		Map<String, List<String>> map = new HashMap<String, List<String>>();
+		List<String> list1 = new ArrayList<>();
+		list1.add("123");
+		list1.add("234");
+		list1.add("345");
+		List<String> list2 = new ArrayList<>();
+		list2.add("12");
+		list2.add("34");
+		map.put("1", list1);
+		map.put("2", list2);
+		for (Map.Entry<String, List<String>> entry : map.entrySet()) {
+			   System.out.println("key= " + entry.getKey() + " and value= " + entry.getValue());
+	    }
+	}
   
  
 }

@@ -11,6 +11,7 @@ public class DoTest {
     public void test(){
     	TestPerson personObj = new TestPerson("Test");  
     	personObj.getName();
+    	System.out.println("???");
     }
     @Test
     public void test2(){
