@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+<meta charset="utf-8" />
+<title>input输入限制.html</title>
+<style>
+
+
+</style>
+</head>
+<body>
+<div>
+只能输入中文
+<input type="text" onkeyup="this.value=this.value.replace(/[^\u4e00-\u9fa5]/g,'')"> <br />
+只能输入英文	
+<input type="text" onkeyup="this.value=this.value.replace(/[^a-zA-Z]/g,'')">   <br />
+只能输入数字和英文
+<input onKeyUp="value=value.replace(/[^\d|chun]/g,'')">  <br />
+</div>
+
+</body>
+</html>
+			
