@@ -1,0 +1,20 @@
+命令行常用操作
+su //进入超级管理员
+vi //打开文件
+Esc :wq //编辑结束保存文件
+
+解压jdk到当前目录
+tar -zxvf jdk-8u60-linux-x64.tar.gz
+
+
+
+前置 修改/etc/yum.repos.d/CentOS-Base.repo为：
+baseurl=http://mirrors.163.com/
+
+安装 yum install gcc tcl
+yum install gcc
+yum install tcl
+
+安装redis
+
+
