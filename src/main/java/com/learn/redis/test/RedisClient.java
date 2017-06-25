@@ -16,17 +16,20 @@ public class RedisClient {
 		Jedis redisClient = null;  
 		try  
 		{  
-			redisClient = RedisClientPoolTest.jedisPool.getResource();  
+			redisClient = RedisClientPool.jedisPool.getResource(); 
+			String s =redisClient.get("hjx");
+			System.out.print(s);
 		}   
 		catch (Exception e)  
 		{  
 			// 销毁对象  
-			RedisClientPoolTest.jedisPool.returnBrokenResource(redisClient);  
+			RedisClientPool.jedisPool.returnBrokenResource(redisClient);  
+			e.printStackTrace();
 		}  
 		finally  
 		{  
 			// 还原到连接池  
-			RedisClientPoolTest.jedisPool.returnResource(redisClient);  
+			RedisClientPool.jedisPool.returnResource(redisClient);  
 		}  
 		
 	}

@@ -10,19 +10,19 @@ import redis.clients.jedis.JedisPoolConfig;
  * @see [相关类/方法]
  * @since [产品/模块版本]
  */
-public class RedisClientPoolTest {
-	public static RedisClientPoolTest redisClientPool = getInstance();
+public class RedisClientPool {
+	public static RedisClientPool redisClientPool = getInstance();
 
 	public static JedisPool jedisPool;
 
-	public static synchronized RedisClientPoolTest getInstance() {
+	public static synchronized RedisClientPool getInstance() {
 		if (null == redisClientPool) {
-			redisClientPool = new RedisClientPoolTest();
+			redisClientPool = new RedisClientPool();
 		}
 		return redisClientPool;
 	}
 
-	public RedisClientPoolTest() {
+	public RedisClientPool() {
 		if (null == jedisPool) {
 			init();
 		}
@@ -55,7 +55,7 @@ public class RedisClientPoolTest {
 	 */
 	public static void init() {
 		JedisPoolConfig jedisPoolConfig = initPoolConfig();
-		String host = "192.168.168.136";
+		String host = "localhost";
 		int port = 6379;
 		int timeout = 6000;
 		// 构造连接池
