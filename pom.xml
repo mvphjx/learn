@@ -5,7 +5,10 @@
   <groupId>com</groupId>
   <artifactId>learn</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-  <packaging>jar</packaging>
+    <modules>
+        <module>comseckill</module>
+    </modules>
+    <packaging>pom</packaging>
 
   <name>learn</name>
   <url>http://maven.apache.org</url>
