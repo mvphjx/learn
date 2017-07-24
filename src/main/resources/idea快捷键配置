@@ -3,3 +3,11 @@ http://blog.csdn.net/dlz_mr/article/details/54341163
 1 配置keymap 为 eclipse风格
 2 微调 main menu.code.completion.basic    ctrl+/
 
+常用快捷键
+
+
+shift *2  简易版检索
+ctrl shift r  通过文件名查找
+ctrl + h 全文检索
+ctrl shift h  查看调用堆栈
+
