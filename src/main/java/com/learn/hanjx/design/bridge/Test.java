@@ -1,4 +1,4 @@
-﻿package com.learn.hanjx.design.bridge;
+package com.learn.hanjx.design.bridge;
 
 /**桥接
  * 作用：将抽象部分与其实现部分分离，使它们都可以独立地变化

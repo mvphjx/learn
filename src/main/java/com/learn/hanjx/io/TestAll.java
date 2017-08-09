@@ -1,4 +1,4 @@
-﻿package com.learn.hanjx.io;
+package com.learn.hanjx.io;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;

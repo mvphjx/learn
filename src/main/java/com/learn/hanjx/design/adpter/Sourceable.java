@@ -1,4 +1,4 @@
-﻿package com.learn.hanjx.design.adpter;
+package com.learn.hanjx.design.adpter;
 
 public interface Sourceable {
 	

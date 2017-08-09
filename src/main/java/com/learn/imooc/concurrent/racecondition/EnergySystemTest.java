@@ -1,4 +1,4 @@
-﻿package com.learn.imooc.concurrent.racecondition;
+package com.learn.imooc.concurrent.racecondition;
 
 
 public class EnergySystemTest {

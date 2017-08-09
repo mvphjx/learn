@@ -1,4 +1,4 @@
-﻿package com.learn.hanjx.thread;
+package com.learn.hanjx.thread;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;

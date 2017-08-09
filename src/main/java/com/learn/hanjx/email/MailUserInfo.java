@@ -1,4 +1,4 @@
-﻿package com.learn.hanjx.email;
+package com.learn.hanjx.email;
 
 import java.util.Properties;  
 

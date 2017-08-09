@@ -1,4 +1,4 @@
-﻿package com.learn.servlet;
+package com.learn.servlet;
 /**
  * 验证jsp是一种servlet
  * 并且jsp  java片段  被放到service方法中

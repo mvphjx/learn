@@ -1,4 +1,4 @@
-﻿package com.learn.hanjx.design.state;
+package com.learn.hanjx.design.state;
 
 /**
 State（状态）

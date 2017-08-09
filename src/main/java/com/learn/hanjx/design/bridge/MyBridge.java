@@ -1,4 +1,4 @@
-﻿package com.learn.hanjx.design.bridge;
+package com.learn.hanjx.design.bridge;
 
 public class MyBridge extends Bridge {
 //	public void method(){

@@ -1,4 +1,4 @@
-﻿package com.learn.Try.T2016.T03;
+package com.learn.Try.T2016.T03;
 /*
  * 内部类作为接口
  * 匿名内部类

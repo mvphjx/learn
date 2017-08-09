@@ -1,4 +1,4 @@
-﻿package com.learn.hanjx.aop.jdkproxy;
+package com.learn.hanjx.aop.jdkproxy;
 
 import java.lang.reflect.Method;
 

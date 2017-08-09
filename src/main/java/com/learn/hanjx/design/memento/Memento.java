@@ -1,4 +1,4 @@
-﻿package com.learn.hanjx.design.memento;
+package com.learn.hanjx.design.memento;
 
 public class Memento {
 	

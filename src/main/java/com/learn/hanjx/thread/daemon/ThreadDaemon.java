@@ -1,4 +1,4 @@
-﻿package com.learn.hanjx.thread.daemon;
+package com.learn.hanjx.thread.daemon;
 
 
 /**

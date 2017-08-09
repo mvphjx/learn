@@ -1,4 +1,4 @@
-﻿package com.learn.hanjx.design.chainOfResponsibility;
+package com.learn.hanjx.design.chainOfResponsibility;
 
 /**
 Chain of Responsibility（责任链）

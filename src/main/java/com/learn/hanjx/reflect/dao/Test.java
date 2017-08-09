@@ -1,4 +1,4 @@
-﻿package com.learn.hanjx.reflect.dao;
+package com.learn.hanjx.reflect.dao;
 /*
  * 通过反射
  * 自己封装的ORM框架

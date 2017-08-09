@@ -1,4 +1,4 @@
-﻿package com.learn.hanjx.design.visit;
+package com.learn.hanjx.design.visit;
 
 public class MyVisitor implements Visitor {
 

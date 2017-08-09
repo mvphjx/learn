@@ -1,4 +1,4 @@
-﻿package com.learn.hanjx.design.adpter;
+package com.learn.hanjx.design.adpter;
 
 /**适配器
  * 作用：使不兼容的接口相容

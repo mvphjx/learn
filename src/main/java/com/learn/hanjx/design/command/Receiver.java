@@ -1,4 +1,4 @@
-﻿package com.learn.hanjx.design.command;
+package com.learn.hanjx.design.command;
 
 public class Receiver {
 	public void action(){

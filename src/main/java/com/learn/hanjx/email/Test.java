@@ -1,4 +1,4 @@
-﻿package com.learn.hanjx.email;
+package com.learn.hanjx.email;
 import javax.mail.MessagingException;  
 import javax.mail.Message.RecipientType;  
 public class Test {

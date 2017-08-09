@@ -1,4 +1,4 @@
-﻿package com.learn.hanjx.thread.daemon;
+package com.learn.hanjx.thread.daemon;
 /*
  * 守护线程结束的时候  不一定会运行finally
  */

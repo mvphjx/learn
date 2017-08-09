@@ -1,4 +1,4 @@
-﻿package com.learn.hanjx.design.strategy;
+package com.learn.hanjx.design.strategy;
 
 public class Multiply extends AbstractCalculator implements ICalculator {
 

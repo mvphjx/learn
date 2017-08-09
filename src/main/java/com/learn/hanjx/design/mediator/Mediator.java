@@ -1,4 +1,4 @@
-﻿package com.learn.hanjx.design.mediator;
+package com.learn.hanjx.design.mediator;
 
 public interface Mediator {
 	//创建协调者

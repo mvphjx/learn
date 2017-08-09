@@ -1,4 +1,4 @@
-﻿package com.learn.hanjx.design.factorymethod;
+package com.learn.hanjx.design.factorymethod;
 
 import com.learn.hanjx.design.iterator.Collection;
 

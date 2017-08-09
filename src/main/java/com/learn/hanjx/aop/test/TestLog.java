@@ -1,4 +1,4 @@
-﻿package com.learn.hanjx.aop.test;
+package com.learn.hanjx.aop.test;
 /**
  * 动态代理类不仅简化了编程工作，而且提高了软件系统的扩展性和可维护性。
  * 我们可以通过实现java.lang.reflect.InvocationHandler接口提供一个执行处理器，

@@ -1,4 +1,4 @@
-﻿package com.learn.hanjx.design.adpter;
+package com.learn.hanjx.design.adpter;
 /**
  * 包装
  * 

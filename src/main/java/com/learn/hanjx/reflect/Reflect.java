@@ -1,4 +1,4 @@
-﻿package com.learn.hanjx.reflect;
+package com.learn.hanjx.reflect;
 /*
  * 反射
  * 类似动态语言的特性

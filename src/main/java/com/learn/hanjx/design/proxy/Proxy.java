@@ -1,4 +1,4 @@
-﻿package com.learn.hanjx.design.proxy;
+package com.learn.hanjx.design.proxy;
 
 public class Proxy implements Sourceable {
 

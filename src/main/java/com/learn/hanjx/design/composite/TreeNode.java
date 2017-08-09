@@ -1,4 +1,4 @@
-﻿package com.learn.hanjx.design.composite;
+package com.learn.hanjx.design.composite;
 
 import java.util.Enumeration;
 import java.util.Vector;

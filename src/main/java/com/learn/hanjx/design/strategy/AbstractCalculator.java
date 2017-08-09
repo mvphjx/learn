@@ -1,4 +1,4 @@
-﻿package com.learn.hanjx.design.strategy;
+package com.learn.hanjx.design.strategy;
 
 public abstract class AbstractCalculator {
 	

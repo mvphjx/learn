@@ -1,4 +1,4 @@
-﻿package com.learn.hanjx.design.composite;
+package com.learn.hanjx.design.composite;
 /**
  * Composite（组合）
 作用：一致地对待组合对象和独立对象

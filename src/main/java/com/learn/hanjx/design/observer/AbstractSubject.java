@@ -1,4 +1,4 @@
-﻿package com.learn.hanjx.design.observer;
+package com.learn.hanjx.design.observer;
 
 import java.util.Enumeration;
 import java.util.Vector;

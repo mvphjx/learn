@@ -1,4 +1,4 @@
-﻿package com.learn.hanjx.reflect.dao;
+package com.learn.hanjx.reflect.dao;
 /*
  * 提供数据库连接的工厂类
  */

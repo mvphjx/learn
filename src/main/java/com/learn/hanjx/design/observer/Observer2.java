@@ -1,4 +1,4 @@
-﻿package com.learn.hanjx.design.observer;
+package com.learn.hanjx.design.observer;
 
 public class Observer2 implements Observer {
 

@@ -1,4 +1,4 @@
-﻿package com.learn.hanjx.jvm.out;
+package com.learn.hanjx.jvm.out;
 /*
  * http://blog.csdn.net/mvphjx/article/details/50723562
  * 测试

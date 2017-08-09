@@ -1,4 +1,4 @@
-﻿package com.learn.hanjx.email;
+package com.learn.hanjx.email;
 import javax.mail.Message.RecipientType;  
 /**邮件信息*/  
 public class MessageInfo {  

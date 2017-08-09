@@ -1,4 +1,4 @@
-﻿package com.learn.hanjx.design.singleton;
+package com.learn.hanjx.design.singleton;
 
 import org.junit.Test;
 

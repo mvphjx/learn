@@ -1,4 +1,4 @@
-﻿package com.learn.hanjx.design.state;
+package com.learn.hanjx.design.state;
 
 /**
  * 状态类的核心类

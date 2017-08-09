@@ -1,4 +1,4 @@
-﻿package com.learn.hanjx.design.facade;
+package com.learn.hanjx.design.facade;
 
 public class CPU {
 	

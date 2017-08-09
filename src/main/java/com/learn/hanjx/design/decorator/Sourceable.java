@@ -1,4 +1,4 @@
-﻿package com.learn.hanjx.design.decorator;
+package com.learn.hanjx.design.decorator;
 
 public interface Sourceable {
 	public void method();

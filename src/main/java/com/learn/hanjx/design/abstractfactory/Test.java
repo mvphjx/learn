@@ -1,4 +1,4 @@
-﻿package com.learn.hanjx.design.abstractfactory;
+package com.learn.hanjx.design.abstractfactory;
 
 /**
  * 抽象工厂

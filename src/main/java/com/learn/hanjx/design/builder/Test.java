@@ -1,4 +1,4 @@
-﻿package com.learn.hanjx.design.builder;
+package com.learn.hanjx.design.builder;
 
 /**
  * 建造者模式（Builder）

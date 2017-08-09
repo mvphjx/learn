@@ -1,4 +1,4 @@
-﻿package com.learn.hanjx.T;
+package com.learn.hanjx.T;
 /**
  * 一个例子全部说明java泛型中的
  * K,V,T,E,?,object的意思及其用法

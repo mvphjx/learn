@@ -1,4 +1,4 @@
-﻿package com.learn.hanjx.design.bridge;
+package com.learn.hanjx.design.bridge;
 
 public class SourceSub1 implements Sourceable {
 

@@ -1,4 +1,4 @@
-﻿package com.learn.hanjx.reflect.dao;
+package com.learn.hanjx.reflect.dao;
 /**
  * 用户实体类Model
  * 

@@ -1,4 +1,4 @@
-﻿package com.learn.hanjx.design.adpter;
+package com.learn.hanjx.design.adpter;
 
 public class SourceSub1 extends Wrapper2 {
 	public void method1(){

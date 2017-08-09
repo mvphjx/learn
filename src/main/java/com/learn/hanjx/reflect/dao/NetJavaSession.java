@@ -1,4 +1,4 @@
-﻿package com.learn.hanjx.reflect.dao;
+package com.learn.hanjx.reflect.dao;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.sql.Connection;

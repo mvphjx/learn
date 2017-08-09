@@ -1,4 +1,4 @@
-﻿package com.learn.hanjx.design.state;
+package com.learn.hanjx.design.state;
 
 /**
  * 状态模式的切换类  2016年3月21日10:02:34

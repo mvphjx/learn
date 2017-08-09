@@ -1,4 +1,4 @@
-﻿package com.learn.hanjx.design.visit;
+package com.learn.hanjx.design.visit;
 
 /**
  * 本代码出自博客：http://blog.csdn.net/zhangerqing 

@@ -1,4 +1,4 @@
-﻿package com.learn.hanjx.design.observer;
+package com.learn.hanjx.design.observer;
 
 public class MySubject extends AbstractSubject {
 
@@ -8,4 +8,5 @@ public class MySubject extends AbstractSubject {
 		notifyObservers();
 	}
 
+	
 }

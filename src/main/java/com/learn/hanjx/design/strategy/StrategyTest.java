@@ -1,4 +1,4 @@
-﻿package com.learn.hanjx.design.strategy;
+package com.learn.hanjx.design.strategy;
 
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.ExecutorService;

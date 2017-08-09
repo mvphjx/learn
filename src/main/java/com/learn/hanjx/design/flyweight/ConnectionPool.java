@@ -1,4 +1,4 @@
-﻿package com.learn.hanjx.design.flyweight;
+package com.learn.hanjx.design.flyweight;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

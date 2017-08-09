@@ -1,4 +1,4 @@
-﻿package com.learn.hanjx.design.iterator;
+package com.learn.hanjx.design.iterator;
 
 public class MyIterator implements Iterator {
 

@@ -1,4 +1,4 @@
-﻿package com.learn.hanjx.design.iterator;
+package com.learn.hanjx.design.iterator;
 
 public interface Iterator {
 	//前移

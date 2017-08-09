@@ -1,4 +1,4 @@
-﻿package com.learn.hanjx.aop.jdkproxy.test;
+package com.learn.hanjx.aop.jdkproxy.test;
 /*
  * 深入地理解Java的反射和动态代理机制，
  * 同时对Spring中盛行的IOC和AOP的后台实现原理有了更加清晰的理解

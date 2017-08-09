@@ -1,4 +1,4 @@
-﻿package com.learn.hanjx.design.chainOfResponsibility;
+package com.learn.hanjx.design.chainOfResponsibility;
 
 public class MyHandler extends AbstractHandler implements Handler {
 

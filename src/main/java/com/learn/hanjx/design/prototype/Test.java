@@ -1,4 +1,4 @@
-﻿package com.learn.hanjx.design.prototype;
+package com.learn.hanjx.design.prototype;
 
 import java.io.IOException;
 

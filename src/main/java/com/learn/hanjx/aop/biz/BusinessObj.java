@@ -1,4 +1,4 @@
-﻿package com.learn.hanjx.aop.biz;
+package com.learn.hanjx.aop.biz;
 /**
  *业务逻辑类接口.    
  */

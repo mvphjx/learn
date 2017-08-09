@@ -1,4 +1,4 @@
-﻿package com.learn.hanjx.design.singleton;
+package com.learn.hanjx.design.singleton;
 /**
  * 把创建和获取方法分开
  * 以便减小同步粒度，并且满足线程安全

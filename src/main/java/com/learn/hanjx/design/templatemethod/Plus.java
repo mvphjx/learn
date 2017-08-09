@@ -1,4 +1,4 @@
-﻿package com.learn.hanjx.design.templatemethod;
+package com.learn.hanjx.design.templatemethod;
 
 public class Plus extends AbstractCalculator {
 

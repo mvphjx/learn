@@ -1,4 +1,4 @@
-﻿package com.learn.hanjx.thread.lock.badLock;
+package com.learn.hanjx.thread.lock.badLock;
 /*
  * 测试死锁
  */

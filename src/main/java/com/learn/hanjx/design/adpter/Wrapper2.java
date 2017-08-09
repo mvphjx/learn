@@ -1,4 +1,4 @@
-﻿package com.learn.hanjx.design.adpter;
+package com.learn.hanjx.design.adpter;
 
 public abstract class Wrapper2 implements Sourceable{
 	

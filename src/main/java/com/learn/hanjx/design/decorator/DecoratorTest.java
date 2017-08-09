@@ -1,4 +1,4 @@
-﻿package com.learn.hanjx.design.decorator;
+package com.learn.hanjx.design.decorator;
 
 /**
 Decorator（装饰器）

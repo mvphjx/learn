@@ -1,4 +1,4 @@
-﻿package com.learn.hanjx.design.mediator;
+package com.learn.hanjx.design.mediator;
 
 public class User2 extends User {
 

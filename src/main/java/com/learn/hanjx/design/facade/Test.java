@@ -1,4 +1,4 @@
-﻿package com.learn.hanjx.design.facade;
+package com.learn.hanjx.design.facade;
 
 /**
 Fa莽ade锛堝瑙傦級

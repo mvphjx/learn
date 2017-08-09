@@ -1,4 +1,4 @@
-﻿package com.learn.hanjx.assert1;
+package com.learn.hanjx.assert1;
 /**
  * 
 开启assertion功能

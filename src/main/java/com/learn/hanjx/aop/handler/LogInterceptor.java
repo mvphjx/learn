@@ -1,4 +1,4 @@
-﻿package com.learn.hanjx.aop.handler;
+package com.learn.hanjx.aop.handler;
 /**
  运行LogInterceptor类我们可以发现，它实现了前面所需要的功能，但是很好的将业务逻辑方法的代码和日志记录的代码分离开来，
  并且所有的业务处理对象都可以利用该类来完成日志的记录，防止了重复代码的出现，
