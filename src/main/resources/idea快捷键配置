@@ -10,4 +10,8 @@ shift *2  简易版检索
 ctrl shift r  通过文件名查找
 ctrl + h 全文检索
 ctrl shift h  查看调用堆栈
+shift+F1 定位到下一个错误
 
+查看/跳转 当前页面变量引用
+Ctrl+shift+G组合键
+F12 查找变量的初始化位置
