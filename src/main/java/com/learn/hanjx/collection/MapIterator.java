@@ -7,11 +7,7 @@ package com.learn.hanjx.collection;
  * 迭代器API  remove()可用
  * 
  */
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import org.junit.Test;
 
@@ -68,6 +64,21 @@ public class MapIterator {
 			   System.out.println("key= " + entry.getKey() + " and value= " + entry.getValue());
 	    }
 	}
+	@Test
+	public void testNull(){
+		Map<String, List<String>> map = new TreeMap<String, List<String>>();
+		List<String> list1 = new ArrayList<>();
+		list1.add("12223");
+		list1.add("234");
+		list1.add("345");
+		List<String> list2 = new ArrayList<>();
+		list2.add("12");
+		list2.add("34");
+		map.put("1", list1);
+		map.put("2", list2);
+		map.get(null);
+	}
+
   
  
 }
