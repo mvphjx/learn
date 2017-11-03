@@ -1,11 +1,13 @@
 http://blog.csdn.net/zhangerqing/article/details/8731044
 http://blog.csdn.net/mvphjx/article/details/50731054
 “单一职责原则告诉我们实现类要职责单一；
+单一职责原则（Single Responsibility Principle - SRP）
 里氏替换原则告诉我们不要破坏继承体系；
 依赖倒置原则告诉我们要面向接口编程；
 接口隔离原则告诉我们在设计接口的时候要精简单一；
 迪米特法则告诉我们要降低耦合。
 而开闭原则是总纲，他告诉我们要对扩展开放，对修改关闭。”
+
 一、设计模式是什么
 （1）反复出现问题的解决方案
 （2）增强软件的灵活性

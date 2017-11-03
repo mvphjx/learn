@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<xs:schema xmlns:jxb="http://java.sun.com/xml/ns/jaxb"
+			   xmlns:xs="http://www.w3.org/2001/XMLSchema"
+			   xmlns:puabis="http://hisign.com/pu/abis/plugin" xmlns:annox="http://annox.dev.java.net"
+			   jxb:extensionBindingPrefixes="puabis " jxb:version="2.1"
+			   xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+			   targetNamespace="http://hisign.com.cn/pu/abis/dblib/person-info-1.0"
+			   xmlns:pinfo="http://hisign.com.cn/pu/abis/dblib/person-info-1.0"
+			   elementFormDefault="qualified">
+	<xs:element name="JaxbTest" type="pinfo:JaxbTest" />
+	<xs:complexType name="JaxbTest">
+	<xs:annotation>
+		<xs:appinfo>
+			<puabis:table />
+		</xs:appinfo>
+	</xs:annotation>
+		<xs:sequence>
+			<xs:element name="EnrollInfo2" type="pinfo:MisPersonCommInfo"  maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="MisPersonCommInfo">
+		<xs:annotation>
+			<xs:appinfo>
+				<puabis:JsonObj />
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Id" type="xs:long">
+				<xs:annotation>
+					<xs:appinfo>
+						<puabis:item length="15" precision="15" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+</xs:schema>

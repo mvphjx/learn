@@ -1,0 +1,23 @@
+学习使用sqlite  一个非常常用的嵌入式数据库
+
+svn“Previous operation has not finished; run 'cleanup' if it was interrupted“报错的解决方法
+
+
+sqlite3 wc.db "select * from work_queue";
+sqlite3 wc.db "select count() from work_queue";
+ "delete from work_queue";
+
+D:\workspace\PU\trunk\PU-AFIS-10\trunk\INSTALL-RES\.svn\wc.db
+D:\workspace\PU\trunk\PU-AFIS-10\trunk\DOC\.svn\wc.db
+D:\workspace\PU\trunk\PU-AFIS-10\trunk\COMMON\JAVA\.svn\wc.db
+D:\workspace\PU\trunk\PU-AFIS-10\trunk\BACKEND\COMMON\.svn\wc.db
+D:\workspace\PU\trunk\PU-AFIS-10\trunk\BACKEND\OTHER\.svn\wc.db
+D:\workspace\PU\trunk\PU-AFIS-10\trunk\BACKEND\WEB\.svn\wc.db
+
+
+
+sqlite3 D:\workspace\PU\trunk\COMMONS\.svn\wc.db "select count() from work_queue"
+sqlite3 D:\workspace\PU\trunk\PU-AFIS-10\trunk\COMMON\JAVA\.svn\wc.db "select count() from work_queue"
+sqlite3 D:\workspace\PU\trunk\PU-AFIS-10\trunk\BACKEND\COMMON\.svn\wc.db "select count() from work_queue"
+sqlite3 D:\workspace\PU\trunk\PU-AFIS-10\trunk\BACKEND\OTHER\.svn\wc.db "select count() from work_queue"
+sqlite3 D:\workspace\PU\trunk\PU-AFIS-10\trunk\BACKEND\WEB\.svn\wc.db "select count() from work_queue"

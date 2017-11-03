@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<xs:schema xmlns:common="http://hisign.com/pu/abis/base/mex/common-1.0"
+	elementFormDefault="qualified" targetNamespace="http://hisign.com/pu/abis/base/mex/common-1.0"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:simpleType name="Bty">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="UNKNOWN" />
+			<xs:enumeration value="FINGER" />
+			<xs:enumeration value="PALM" />
+			<xs:enumeration value="VOICE" />
+			<xs:enumeration value="FACE" />
+			<xs:enumeration value="DNA" />
+			<xs:enumeration value="FOOT" />
+			<xs:enumeration value="IRIS" />
+			<xs:enumeration value="RETINA" />
+			<xs:enumeration value="SIGNATURE" />
+			<xs:enumeration value="CARDIMAGE" />
+			<xs:enumeration value="FINGERORPALM" />
+			<!-- 指节纹 -->
+			<xs:enumeration value="EJI" />
+			<xs:enumeration value="MULTI" />
+			<xs:enumeration value="SHOES" />
+			<xs:enumeration value="SCAR" />
+			<xs:enumeration value="MARK" />
+			<xs:enumeration value="TATTOO" />
+			<xs:enumeration value="OTHER_BODY" />
+			<!-- 一般电子数据。具体的数据类型采用LobFormatCode描述：声音、视频、 -->
+			<xs:enumeration value="DATA" />
+			<xs:enumeration value="HAND_WRITING" />
+			<xs:enumeration value="SMT" />
+			<!-- 静脉纹。对于皮纹来说，指纹、掌纹、足迹等等都是皮纹。实际应当归到一类 但是由于历史的原因，导致识别为多生物特征。 -->
+			<!-- 这里，我们把静脉纹作为一类。而指静脉纹、掌静脉纹、手背静脉纹等等就不加以区分了，而通过FGP进行区分。 -->
+			<xs:enumeration value="VASCULAR" />
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="IfOldExist">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="SKIP" />
+			<xs:enumeration value="OVERRIDE" />
+			<xs:enumeration value="MERGE" />
+			<!-- 根据人工标记的特征校正内部特征+提取一份纯内部特征，也就是2份内部特征 -->
+			<xs:enumeration value="INTERIOR" />
+            <!-- 只是根据人工标记的特征校正内部特征 -->
+            <xs:enumeration value="ENHANCE_INTERIOR_EXPERT" />
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- NUM := 1*DIGIT -->
+	<!-- NUM_ITEM := NUM | NUM‘-’NUM -->
+	<!-- NumList := ‘*’ | NUM_ITEM[,NUM_ITEM]* -->
+	<xs:simpleType name="NumList">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="\*|^[\d+|\d+\-\d+](,\d+)*(\d+\-\d+)*(,\d+)*" />
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ImgPrefer">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="ONLY_ORIG_IMG" />
+			<!-- 当有原图时，优先使用原图，没有原图时用压缩图 -->
+			<xs:enumeration value="PREFER_ORIG_IMG " />
+			<xs:enumeration value="ONLY_CPR_IMG" />
+			<xs:enumeration value="PREFER_CPR_IMG" />
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Cs">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="GRAY" />
+			<xs:enumeration value="RGB " />
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Encoding">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="BASE64" />
+			<xs:enumeration value="HEX" />
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ImgFormat">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="JPG" />
+			<xs:enumeration value="JP2" />
+			<xs:enumeration value="BMP" />
+			<xs:enumeration value="RAW" />
+			<xs:enumeration value="WSQ" />
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="PrintType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="TP" />
+			<xs:enumeration value="LP" />
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>

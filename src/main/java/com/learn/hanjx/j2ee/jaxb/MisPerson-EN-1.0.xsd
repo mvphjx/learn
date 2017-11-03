@@ -1,0 +1,1216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:jxb="http://java.sun.com/xml/ns/jaxb"
+	jxb:version="2.0" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:puabis="http://hisign.com/pu/abis/plugin" xmlns:annox="http://annox.dev.java.net"
+	jxb:extensionBindingPrefixes="puabis annox"
+	targetNamespace="http://hisign.com.cn/pu/abis/orm/mis-person-cn-1.0"
+	xmlns:pinfo="http://hisign.com.cn/pu/abis/orm/mis-person-cn-1.0"
+	elementFormDefault="qualified">
+
+	<xs:element name="MisPersonTextInfo" type="pinfo:MisPersonTextInfo" />
+	<xs:complexType name="MisPersonTextInfo">
+		<xs:annotation>
+			<xs:appinfo>
+				<puabis:table />
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Id" type="xs:long">
+				<xs:annotation>
+					<xs:appinfo>
+						<puabis:id length="15" precision="15" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Name" type="xs:string">
+				<xs:annotation>
+					<xs:appinfo>
+						<puabis:field length="50" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="FirstName" type="xs:string">
+				<xs:annotation>
+					<xs:appinfo>
+						<puabis:field length="50" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="NamePinyin" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:appinfo>
+						<puabis:field length="60" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="BirthDate" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:appinfo>
+						<puabis:field length="8" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SexCode" type="xs:string">
+				<xs:annotation>
+					<xs:appinfo>
+						<puabis:field length="2" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<!-- Nationality: GB/T 2659 & ISO 3166-1:1997 -->
+			<xs:element name="Nation" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:appinfo>
+						<puabis:field length="4" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<!-- StateId: 对于身份证是18位 -->
+			<xs:element name="ShenfenId" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:appinfo>
+						<puabis:field length="18" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<!-- Ethnicity: GB/T 3304 -->
+			<xs:element name="MinZu" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:appinfo>
+						<puabis:field length="3" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Alias" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:appinfo>
+						<puabis:field length="50" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PoliticalAffiliation" type="xs:string">
+				<xs:annotation>
+					<xs:appinfo>
+						<puabis:field length="4" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ReligiousFaith" type="xs:string">
+				<xs:annotation>
+					<xs:appinfo>
+						<puabis:field length="4" precision="4" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="MaritalStatus" type="xs:string">
+				<xs:annotation>
+					<xs:appinfo>
+						<puabis:field length="3" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="HighestEduDegree" type="xs:string">
+				<xs:annotation>
+					<xs:appinfo>
+						<puabis:field length="3" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<!-- MilitaryServiceStatus: 3 characters -->
+			<xs:element name="MilitaryServiceStatus" type="xs:string">
+				<xs:annotation>
+					<xs:appinfo>
+						<puabis:field length="3" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Comments" type="xs:string">
+				<xs:annotation>
+					<xs:appinfo>
+						<puabis:lob />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SpecificPersonClassCode" type="xs:string">
+				<xs:annotation>
+					<xs:appinfo>
+						<puabis:field length="8" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="OccupationCode" type="xs:string">
+				<xs:annotation>
+					<xs:appinfo>
+						<puabis:field length="8" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="RelationWithCaseCode" type="xs:string">
+				<xs:annotation>
+					<xs:appinfo>
+						<puabis:field length="8" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="FingerStatus" type="xs:string">
+				<xs:annotation>
+					<xs:appinfo>
+						<puabis:field length="10" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+
+			<!-- @OneToMany -->
+			<xs:element name="AddrInfo" type="pinfo:MisPersonAddrInfo"
+				minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:appinfo>
+						<puabis:OneToMany mappedBy="personId" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="BodyInfo" type="pinfo:MisPersonBodyInfo">
+				<xs:annotation>
+					<xs:appinfo>
+						<puabis:embedded />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CaseInfo" type="pinfo:MisPersonCEInfo">
+				<xs:annotation>
+					<xs:appinfo>
+						<puabis:embedded />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="EnrollInfo" type="pinfo:MisPersonEnrollInfo">
+				<xs:annotation>
+					<xs:appinfo>
+						<puabis:embedded />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="EnrollInfo2" type="pinfo:MisPersonEnrollInfo"  maxOccurs="unbounded">
+			</xs:element>
+			<xs:element name="CertInfo" type="pinfo:MisPersonCertInfo"
+				minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:appinfo>
+						<puabis:OneToMany mappedBy="personId" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<!-- here 'Comm' is abbreviation for communication -->
+			<xs:element name="CommInfo" type="pinfo:MisPersonCommInfo"
+				minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:appinfo>
+						<puabis:OneToMany mappedBy="personId" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="DataQuality" type="pinfo:MisPersonDataQuality">
+				<xs:annotation>
+					<xs:appinfo>
+						<puabis:embedded />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="EduInfo" type="pinfo:MisPersonEduInfo"
+				minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:appinfo>
+						<puabis:OneToMany mappedBy="personId" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="EmploymentInfo" type="pinfo:MisPersonEmploymentInfo"
+				minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:appinfo>
+						<puabis:OneToMany mappedBy="personId" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PhoneInfo" type="pinfo:MisPersonPhoneInfo"
+				minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:appinfo>
+						<puabis:OneToMany mappedBy="personId" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<!-- Below tables shouldn't be included in person demographic information 
+				? -->
+			<!-- 'MisPersonEnrollFeedBack' -->
+			<!-- 'MisPersonDupCardGroup' -->
+			<!-- 'MisPersonHasDupCard' -->
+
+		</xs:sequence>
+	</xs:complexType>
+
+	<!-- one MisPerson to many MisPersonAddrInfo -->
+	<xs:complexType name="MisPersonAddrInfo">
+		<xs:annotation>
+			<xs:appinfo>
+				<puabis:JsonObj />
+				<annox:annotate>
+					<!-- @javax.persistence.NamedQueries({ -->
+					<!-- @javax.persistence.NamedQuery( -->
+					<!-- name="MisPersonAddrInfo.deleteById", -->
+					<!-- query="DELETE FROM MisPersonAddrInfo e WHERE e.id = ?1")}) -->
+				</annox:annotate>
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Id" type="xs:long">
+				<xs:annotation>
+					<xs:appinfo>
+						<puabis:item length="15" precision="15" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="AddressType" type="xs:long">
+				<xs:annotation>
+					<xs:appinfo>
+						<puabis:item length="2" precision="2" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="AddressCode" type="xs:string">
+				<xs:annotation>
+					<xs:appinfo>
+						<puabis:item length="16" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="AddressDetail" type="xs:string">
+				<xs:annotation>
+					<xs:appinfo>
+						<puabis:item length="100" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="AddressZipCode" type="xs:string">
+				<xs:annotation>
+					<xs:appinfo>
+						<puabis:item length="16" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<!--@Embeddable -->
+	<xs:complexType name="MisPersonBodyInfo">
+		<xs:annotation>
+			<xs:appinfo>
+				<puabis:embeddable />
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="BodyHeight" type="xs:int" minOccurs="0">
+				<xs:annotation>
+					<xs:appinfo>
+						<puabis:field length="6" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="BodyWeight" type="xs:int" minOccurs="0">
+				<xs:annotation>
+					<xs:appinfo>
+						<puabis:field length="6" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="FootLength" type="xs:int" minOccurs="0">
+				<xs:annotation>
+					<xs:appinfo>
+						<puabis:field length="6" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="BloodType" type="xs:string">
+				<xs:annotation>
+					<xs:appinfo>
+						<puabis:field length="2" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="BodyFeature" type="xs:string">
+				<xs:annotation>
+					<xs:appinfo>
+						<puabis:field length="500" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<!-- BodyFeatureCodes: 80 characters -->
+			<xs:element name="BodyFeatureCodes" type="xs:string">
+				<xs:annotation>
+					<xs:appinfo>
+						<puabis:field length="80" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SmtCodes" type="xs:string">
+				<xs:annotation>
+					<xs:appinfo>
+						<puabis:field length="120" precision="120" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="HairColor" type="xs:string">
+				<xs:annotation>
+					<xs:appinfo>
+						<puabis:field length="3" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="EyeColor" type="xs:string">
+				<xs:annotation>
+					<xs:appinfo>
+						<puabis:field length="3" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="AuditionCap" type="xs:string">
+				<xs:annotation>
+					<xs:appinfo>
+						<puabis:field length="2" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="VocalCap" type="xs:string">
+				<xs:annotation>
+					<xs:appinfo>
+						<puabis:field length="2" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Accent" type="xs:string">
+				<xs:annotation>
+					<xs:appinfo>
+
+						<puabis:field length="3" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="FingerMissedCnt" type="xs:byte"
+				minOccurs="0">
+				<xs:annotation>
+					<xs:appinfo>
+						<puabis:field length="2" precision="2" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<!--@Embeddable -->
+	<xs:complexType name="MisPersonCEInfo">
+		<xs:annotation>
+			<xs:appinfo>
+				<puabis:embeddable />
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="CaseClassCode1" type="xs:string">
+				<xs:annotation>
+					<xs:appinfo>
+						<puabis:field length="8" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CaseClassCode2" type="xs:string">
+				<xs:annotation>
+					<xs:appinfo>
+						<puabis:field length="8" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CaseClassCode3" type="xs:string">
+				<xs:annotation>
+					<xs:appinfo>
+						<puabis:field length="8" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="IsCriminal" type="xs:int" minOccurs="0">
+				<xs:annotation>
+					<xs:appinfo>
+						<puabis:field length="1" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PersonClassCode" type="xs:string">
+				<xs:annotation>
+					<xs:appinfo>
+						<puabis:field length="2" precision="2" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CriminalRecord" type="xs:string">
+				<xs:annotation>
+					<xs:appinfo>
+						<puabis:lob />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CaseNum" type="xs:string">
+				<xs:annotation>
+					<xs:appinfo>
+						<puabis:field length="32" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CaseName" type="xs:string">
+				<xs:annotation>
+					<xs:appinfo>
+						<puabis:field length="100" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SpecificClassCode1" type="xs:string">
+				<xs:annotation>
+					<xs:appinfo>
+						<puabis:field length="12" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<!-- 现场勘察号码。32 characters. 鉴于现场勘察系统在人员采集的时候重要性，因此加入此号码。 -->
+			<xs:element name="SceneInspectNum" type="xs:string">
+				<xs:annotation>
+					<xs:appinfo>
+						<puabis:field length="32" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<!--@Embeddable -->
+	<xs:complexType name="MisPersonEnrollInfo">
+		<xs:annotation>
+			<xs:appinfo>
+				<puabis:embeddable />
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="CreateTime" type="xs:dateTime">
+				<xs:annotation>
+					<xs:appinfo>
+						<puabis:field />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CreateUser" type="xs:string">
+				<xs:annotation>
+					<xs:appinfo>
+						<puabis:field length="16" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="UpdateTime" type="xs:dateTime">
+				<xs:annotation>
+					<xs:appinfo>
+						<puabis:field />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="UpdateUser" type="xs:string">
+				<xs:annotation>
+					<xs:appinfo>
+						<puabis:field length="16" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="EnrollSiteId" type="xs:string">
+				<xs:annotation>
+					<xs:appinfo>
+						<puabis:field length="16" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="EnrollUser" type="xs:string">
+				<xs:annotation>
+					<xs:appinfo>
+						<puabis:field length="50" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="EnrollUnitCode" type="xs:string">
+				<xs:annotation>
+					<xs:appinfo>
+						<puabis:field length="16" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="EnrollTime" type="xs:dateTime">
+				<xs:annotation>
+					<xs:appinfo>
+						<puabis:field />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="EnrollSysId" type="xs:string">
+				<xs:annotation>
+					<xs:appinfo>
+						<puabis:field length="4" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="EnrollSiteAddr" type="xs:string">
+				<xs:annotation>
+					<xs:appinfo>
+						<puabis:field length="100" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="FPDeviceType" type="xs:byte" minOccurs="0">
+				<xs:annotation>
+					<xs:appinfo>
+						<puabis:field length="3" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="FPDeviceMaker" type="xs:string">
+				<xs:annotation>
+					<xs:appinfo>
+						<puabis:field length="30" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="FPDeviceModleNo" type="xs:string">
+				<xs:annotation>
+					<xs:appinfo>
+						<puabis:field length="30" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ComputerName" type="xs:string">
+				<xs:annotation>
+					<xs:appinfo>
+						<puabis:field length="30" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ComputerOsName" type="xs:string">
+				<xs:annotation>
+					<xs:appinfo>
+						<puabis:field length="30" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="MACS" type="xs:string">
+				<xs:annotation>
+					<xs:appinfo>
+						<puabis:field length="40" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="IPAddrs" type="xs:string">
+				<xs:annotation>
+					<xs:appinfo>
+						<puabis:field length="60" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="LsnServiceNum" type="xs:string">
+				<xs:annotation>
+					<xs:appinfo>
+						<puabis:field length="10" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CaptureTimeUsed" type="xs:int"
+				minOccurs="0">
+				<xs:annotation>
+					<xs:appinfo>
+						<puabis:field length="8" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CaptureMode" type="xs:byte" minOccurs="0">
+				<xs:annotation>
+					<xs:appinfo>
+						<puabis:field length="2" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="EnrollBtyMask" type="xs:long" minOccurs="0">
+				<xs:annotation>
+					<xs:appinfo>
+						<puabis:field length="15" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="EnrollComments" type="xs:string">
+				<xs:annotation>
+					<xs:appinfo>
+						<puabis:field length="255" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SiteLatitude" type="xs:long" minOccurs="0">
+				<xs:annotation>
+					<xs:appinfo>
+						<puabis:field length="12" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SiteLongitude" type="xs:long" minOccurs="0">
+				<xs:annotation>
+					<xs:appinfo>
+						<puabis:field length="12" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SiteTemperature" type="xs:byte"
+				minOccurs="0">
+				<xs:annotation>
+					<xs:appinfo>
+						<puabis:field length="3" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="IniEnrollTime" type="xs:date" minOccurs="0">
+				<xs:annotation>
+					<xs:appinfo>
+						<puabis:field />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="IniEnrollUser" type="xs:string"
+				minOccurs="0">
+				<xs:annotation>
+					<xs:appinfo>
+						<puabis:field length="50" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="IniEnrollUnitCode" type="xs:string">
+				<xs:annotation>
+					<xs:appinfo>
+						<puabis:field length="16" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="IniEnrollType" type="xs:byte" minOccurs="0">
+				<xs:annotation>
+					<xs:appinfo>
+						<puabis:field length="2" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<!-- here Comm is abbreviation for communication -->
+	<!-- one MisPerson to many MisPersonCommInfo -->
+	<xs:complexType name="MisPersonCommInfo">
+		<xs:annotation>
+			<xs:appinfo>
+				<puabis:JsonObj />
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Id" type="xs:long">
+				<xs:annotation>
+					<xs:appinfo>
+						<puabis:item length="15" precision="15" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CommType" type="xs:int">
+				<xs:annotation>
+					<xs:appinfo>
+						<puabis:item length="5" precision="5" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CommNum" type="xs:string">
+				<xs:annotation>
+					<xs:appinfo>
+						<puabis:item length="80" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="LoginPass" type="xs:string">
+				<xs:annotation>
+					<xs:appinfo>
+						<puabis:item length="20" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<!--@Embeddable -->
+	<xs:complexType name="MisPersonDataQuality">
+		<xs:annotation>
+			<xs:appinfo>
+				<puabis:embeddable />
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:sequence>
+			<!-- all is 2 characters -->
+			<xs:element name="OverallQual" type="xs:string">
+				<xs:annotation>
+					<xs:appinfo>
+						<puabis:field length="2" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TextQual" type="xs:string">
+				<xs:annotation>
+					<xs:appinfo>
+						<puabis:field length="2" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="FingerQual" type="xs:string">
+				<xs:annotation>
+					<xs:appinfo>
+						<puabis:field length="2" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PalmQual" type="xs:string">
+				<xs:annotation>
+					<xs:appinfo>
+						<puabis:field length="2" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ShoeQual" type="xs:string">
+				<xs:annotation>
+					<xs:appinfo>
+						<puabis:field length="2" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="FaceQual" type="xs:string">
+				<xs:annotation>
+					<xs:appinfo>
+						<puabis:field length="2" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="VoiceQual" type="xs:string">
+				<xs:annotation>
+					<xs:appinfo>
+						<puabis:field length="2" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="DnaQual" type="xs:string">
+				<xs:annotation>
+					<xs:appinfo>
+						<puabis:field length="2" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SignatureQual" type="xs:string">
+				<xs:annotation>
+					<xs:appinfo>
+						<puabis:field length="2" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<!-- one MisPerson to many MisPersonEduInfo -->
+	<xs:complexType name="MisPersonEduInfo">
+		<xs:annotation>
+			<xs:appinfo>
+				<puabis:JsonObj />
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Id" type="xs:long">
+				<xs:annotation>
+					<xs:appinfo>
+						<puabis:item length="15" precision="15" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="StartDate" type="xs:string">
+				<xs:annotation>
+					<xs:appinfo>
+						<puabis:item length="6" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="EndDate" type="xs:string">
+				<xs:annotation>
+					<xs:appinfo>
+						<puabis:item length="6" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SchoolName" type="xs:string">
+				<xs:annotation>
+					<xs:appinfo>
+						<puabis:item length="100" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SchoolAddress" type="xs:string">
+				<xs:annotation>
+					<xs:appinfo>
+						<puabis:item length="100" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="EduType" type="xs:int" minOccurs="0">
+				<xs:annotation>
+					<xs:appinfo>
+						<puabis:item length="2" precision="2" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ContactPersonName" type="xs:string">
+				<xs:annotation>
+					<xs:appinfo>
+						<puabis:item length="40" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ContactPhone" type="xs:string">
+				<xs:annotation>
+					<xs:appinfo>
+						<puabis:item length="40" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<!-- one MisPerson to many MisPersonEmploymentInfo -->
+	<xs:complexType name="MisPersonEmploymentInfo">
+		<xs:annotation>
+			<xs:appinfo>
+				<puabis:JsonObj />
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Id" type="xs:long">
+				<xs:annotation>
+					<xs:appinfo>
+						<puabis:item length="15" precision="15" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="StartDate" type="xs:string">
+				<xs:annotation>
+					<xs:appinfo>
+						<puabis:item length="6" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="EndDate" type="xs:string">
+				<xs:annotation>
+					<xs:appinfo>
+						<puabis:item length="6" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CompanyName" type="xs:string">
+				<xs:annotation>
+					<xs:appinfo>
+						<puabis:item length="100" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CompanyAddress" type="xs:string">
+				<xs:annotation>
+					<xs:appinfo>
+						<puabis:item length="100" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ContactPersonName" type="xs:string">
+				<xs:annotation>
+					<xs:appinfo>
+						<puabis:item length="40" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ContactPhone" type="xs:string">
+				<xs:annotation>
+					<xs:appinfo>
+						<puabis:item length="40" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<!-- one MisPerson to many MisPersonPhoneInfo -->
+	<xs:complexType name="MisPersonPhoneInfo">
+		<xs:annotation>
+			<xs:appinfo>
+				<puabis:JsonObj />
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Id" type="xs:long">
+				<xs:annotation>
+					<xs:appinfo>
+						<puabis:item length="15" precision="15" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PhoneNumType" type="xs:byte">
+				<xs:annotation>
+					<xs:appinfo>
+						<puabis:item length="1" precision="1" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PhoneNum" type="xs:string">
+				<xs:annotation>
+					<xs:appinfo>
+						<puabis:item length="40" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<!-- id: should be added by xjc extension. -->
+	<!-- one MisPerson to many MisPersonSocialRelation -->
+	<xs:complexType name="MisPersonSocialRelation">
+		<xs:annotation>
+			<xs:appinfo>
+				<puabis:JsonObj />
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Id" type="xs:long">
+				<xs:annotation>
+					<xs:appinfo>
+						<puabis:item length="15" precision="15" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="RelationCode" type="xs:string">
+				<xs:annotation>
+					<xs:appinfo>
+						<puabis:item length="4" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CreateUser" type="xs:string">
+				<xs:annotation>
+					<xs:appinfo>
+						<puabis:item length="16" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CreateTime" type="xs:dateTime">
+				<xs:annotation>
+					<xs:appinfo>
+						<puabis:item />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CreateInstitutionCode" type="xs:string">
+				<xs:annotation>
+					<xs:appinfo>
+						<puabis:item length="16" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="UpdateUser" type="xs:string">
+				<xs:annotation>
+					<xs:appinfo>
+						<puabis:item length="16" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="UpdateTime" type="xs:dateTime">
+				<xs:annotation>
+					<xs:appinfo>
+						<puabis:item />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="UpdateInstitutionCode" type="xs:string">
+				<xs:annotation>
+					<xs:appinfo>
+						<puabis:item length="16" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="RelName" type="xs:string">
+				<xs:annotation>
+					<xs:appinfo>
+						<puabis:item length="40" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="RelSexCode" type="xs:string">
+				<xs:annotation>
+					<xs:appinfo>
+						<puabis:item length="2" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="RelBirthDate" type="xs:string">
+				<xs:annotation>
+					<xs:appinfo>
+						<puabis:item length="8" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="RelNationality" type="xs:string">
+				<xs:annotation>
+					<xs:appinfo>
+						<puabis:item length="4" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="RelEthnicity" type="xs:string">
+				<xs:annotation>
+					<xs:appinfo>
+						<puabis:item length="3" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<!-- RelStateId : 身份证 18 characters -->
+			<xs:element name="RelStateId" type="xs:string">
+				<xs:annotation>
+					<xs:appinfo>
+						<puabis:item length="18" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="RelHukouAddressCode" type="xs:string">
+				<xs:annotation>
+					<xs:appinfo>
+						<puabis:item length="12" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="RelHukouAddress" type="xs:string">
+				<xs:annotation>
+					<xs:appinfo>
+						<puabis:item length="70" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="RelCompanyName" type="xs:string">
+				<xs:annotation>
+					<xs:appinfo>
+						<puabis:item length="70" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="RelAddressCode" type="xs:string">
+				<xs:annotation>
+					<xs:appinfo>
+						<puabis:item length="12" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="RelAddressDetail" type="xs:string">
+				<xs:annotation>
+					<xs:appinfo>
+						<puabis:item length="70" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="RelPhoneNums" type="xs:string">
+				<xs:annotation>
+					<xs:appinfo>
+						<puabis:item length="50" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="RelComments" type="xs:string">
+				<xs:annotation>
+					<xs:appinfo>
+						<puabis:item length="200" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="RelPersonNum" type="xs:string">
+				<xs:annotation>
+					<xs:appinfo>
+						<puabis:item length="32" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="RelPersonId" type="xs:long" minOccurs="0">
+				<xs:annotation>
+					<xs:appinfo>
+						<puabis:item length="15" precision="15" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<!-- one MisPerson to many MisPersonCertInfo -->
+	<xs:complexType name="MisPersonCertInfo">
+		<xs:annotation>
+			<xs:appinfo>
+				<puabis:JsonObj />
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Id" type="xs:long">
+				<xs:annotation>
+					<xs:appinfo>
+						<puabis:item length="15" precision="15" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CertType" type="xs:short">
+				<xs:annotation>
+					<xs:appinfo>
+						<puabis:item length="5" precision="5" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CertNum" type="xs:string">
+				<xs:annotation>
+					<xs:appinfo>
+						<puabis:item length="40" precision="40" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="IssueDate" type="xs:string">
+				<xs:annotation>
+					<xs:appinfo>
+						<puabis:item length="8" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="StartDate" type="xs:string">
+				<xs:annotation>
+					<xs:appinfo>
+						<puabis:item length="8" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ExpireDate" type="xs:string">
+				<xs:annotation>
+					<xs:appinfo>
+						<puabis:item length="8" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="IssueBy" type="xs:string">
+				<xs:annotation>
+					<xs:appinfo>
+						<puabis:item length="40" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

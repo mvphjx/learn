@@ -5,19 +5,21 @@
 
 	<persistence-unit name="JPAUNIT" transaction-type="RESOURCE_LOCAL">
 		<properties>
-	<!-- 	
-			<property name="hibernate.dialect" value="org.hibernate.dialect.OracleDialect" />  
-            <property name="hibernate.connection.driver_class" value="oracle.jdbc.driver.OracleDriver" />  
-            <property name="hibernate.connection.username" value="test" />  
-            <property name="hibernate.connection.password" value="test" />  
-            <property name="hibernate.connection.url" value="jdbc:oracle:thin:@localhost:1521:orcl" />  
-	-->		
-			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5Dialect" />
-			<property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver" />
-			<property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/test?autoReconnect=true&amp;useUnicode=true&amp;characterEncoding=utf8" />
-			<property name="hibernate.connection.username" value="root" />
-			<property name="hibernate.connection.password" value="" />
-			<property name="hibernate.max_fetch_depth" value="3"/>
+
+			<property name="hibernate.dialect" value="org.hibernate.dialect.OracleDialect" />
+            <property name="hibernate.connection.driver_class" value="oracle.jdbc.driver.OracleDriver" />
+            <property name="hibernate.connection.username" value="test" />
+            <property name="hibernate.connection.password" value="test" />
+            <property name="hibernate.connection.url" value="jdbc:oracle:thin:@localhost:1521:orcl" />
+
+
+
+			<!--<property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5Dialect" />-->
+			<!--<property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver" />-->
+			<!--<property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/test?autoReconnect=true&amp;useUnicode=true&amp;characterEncoding=utf8" />-->
+			<!--<property name="hibernate.connection.username" value="root" />-->
+			<!--<property name="hibernate.connection.password" value="" />-->
+			<!--<property name="hibernate.max_fetch_depth" value="3"/>-->
 			
 			
 			<!-- 

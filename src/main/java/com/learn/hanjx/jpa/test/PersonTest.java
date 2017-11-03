@@ -84,7 +84,7 @@ public class PersonTest {
 		    /**
 		     * 瞬态 持久态  游离态。。。。这个jpa上下文，会缓存持久态的对象。。。应该弄成  游离态
 		     * 
-		     * 看了  commit的时间  会多很多：怀疑  应该每次commit都会  检查缓存的持久态对象是否改变
+		     *commit的时间,会多很多：怀疑,应该每次commit都会,检查缓存的持久态对象是否改变。
 		     * 
 		     * http://blog.csdn.net/zjkstone/article/details/7905462
 		     * 
