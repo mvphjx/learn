@@ -49,7 +49,7 @@ public class PersonTest {
 		 * 20000save
 		 * 621947ms20219ms11408ms
 		 */
-		num = 5000;
+		num = 500000;
 		EntityManagerFactory factory = Persistence.createEntityManagerFactory("JPAUNIT");
 		/*
 		 * 不清缓存 最慢  复用 EntityManager但是多个事务提交
