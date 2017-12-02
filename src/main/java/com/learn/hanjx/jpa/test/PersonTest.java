@@ -41,6 +41,46 @@ public class PersonTest {
 		factory.close();
 	}
 	@Test
+	public void createData(){
+		Long time1 = System.currentTimeMillis();
+		int num = 1000*10000;
+		EntityManagerFactory factory = Persistence.createEntityManagerFactory("JPAUNIT");
+
+		EntityManager em = factory.createEntityManager();
+		for(int i = 1;i<num;i++){
+			em.getTransaction().begin();
+			Person p = new Person();
+			p.setName("wang"+System.currentTimeMillis());
+			p.setBirthDay(new Date());
+			IDCard ic = new IDCard(""+System.currentTimeMillis());
+			p.setIdcard(ic);
+			em.persist(p);em.getTransaction().commit();
+			//System.out.println(time1_commit);
+			//em.clear();
+			/**
+			 * 瞬态 持久态  游离态。。。。这个jpa上下文，会缓存持久态的对象。。。应该弄成  游离态
+			 *
+			 *commit的时间,会多很多：怀疑,应该每次commit都会,检查缓存的持久态对象是否改变。
+			 *
+			 * http://blog.csdn.net/zjkstone/article/details/7905462
+			 *
+			 * Remove the given entity from the persistence context, causing
+			 * a managed entity to become detached.  Unflushed changes made
+			 * to the entity if any (including removal of the entity),
+			 * will not be synchronized to the database.  Entities which
+			 * previously referenced the detached entity will continue to
+			 * reference it.
+			 * @param entity  entity instance
+			 * @throws IllegalArgumentException if the instance is not an
+			 *         entity
+			 * @since Java Persistence 2.0
+			 */
+			em.detach(p);
+		}
+		em.close();
+		System.out.println(System.currentTimeMillis()-time1);
+	}
+	@Test
 	public void saveMany(){
 		int num = Integer.MAX_VALUE/2000000;
 		/*
@@ -49,7 +89,7 @@ public class PersonTest {
 		 * 20000save
 		 * 621947ms20219ms11408ms
 		 */
-		num = 500000;
+		num = 2000;
 		EntityManagerFactory factory = Persistence.createEntityManagerFactory("JPAUNIT");
 		/*
 		 * 不清缓存 最慢  复用 EntityManager但是多个事务提交

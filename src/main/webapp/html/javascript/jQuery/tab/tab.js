@@ -106,7 +106,7 @@
             this.each(function(){
                 tabObject=new Tab($(this),config||null);
             });
-					return tabObject;
+			return tabObject;
         }
     });
 

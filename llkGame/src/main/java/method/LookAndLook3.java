@@ -1,13 +1,11 @@
 package method;
 
+import llk.model.Point;
+
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-import java.util.Stack;
-
-import llk.model.NewPoint;
-import llk.model.Point;
 
 
 
@@ -83,19 +81,15 @@ public class LookAndLook3 implements LookBasicIn{
 	 */
 	private boolean getPoint(Point p){
 		Set<Point> set = new HashSet<>();
-		Set<Point> setclone = new HashSet<>();
+		Set<Point> tempSet = new HashSet<>();
 		set.add(p);
 		getSetByPoint(p,set);
-		for(Point point :set){
-			setclone.add(point);
-		}
-		for(Point point :setclone){
+        tempSet.addAll(set);
+		for(Point point :tempSet){
 			getSetByPoint(point,set);
 		}
-		for(Point point :set){
-			setclone.add(point);
-		}
-		for(Point point :setclone){
+        tempSet.addAll(set);
+		for(Point point :tempSet){
 			getSetByPoint(point,set);
 		}
 		set.remove(p);
