@@ -14,14 +14,17 @@ import java.io.IOException;
  */
 public class TestNew {
 	public static void main(String[] args) throws IOException, InterruptedException {
-		for (int i = 0; i < 100; i++) {
+		for (int i = 0; i < 10000; i++) {
 			new Thread(new SyncLockRunnable(1, 2)).start();
 			new Thread(new SyncLockRunnable(2, 1)).start();
 		}
 	}
+	public static void main() throws IOException, InterruptedException {
+		new SyncLockRunnable(1, 2);
+	}
 
 	static class SyncLockRunnable implements Runnable {
-			Integer a, b;
+			private Integer a, b;
 
 			public SyncLockRunnable(int a, int b) {
 				this.a = a;
