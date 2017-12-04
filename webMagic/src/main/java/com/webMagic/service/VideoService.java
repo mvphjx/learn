@@ -1,5 +1,6 @@
 package com.webMagic.service;
 
+import com.github.pagehelper.PageInfo;
 import com.webMagic.base.BaseServiceImpl;
 import com.webMagic.dao.VideoDao;
 import com.webMagic.model.VideoModel;
@@ -19,6 +20,10 @@ public class VideoService extends BaseServiceImpl<VideoModel> {
     @Override
     public Mapper<VideoModel> getMapper() {
         return dao;
+    }
+
+    public PageInfo<VideoModel> getDataList(VideoModel record) {
+        return super.selectPage(record.getPage(), record.getRows(), record);
     }
 
 }

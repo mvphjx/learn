@@ -80,7 +80,8 @@
         <groupId>commons-beanutils</groupId>
         <artifactId>commons-beanutils</artifactId>
     </dependency>
-    <!--mapper-->
+    <!--mapper  https://github.com/godlike110/tk-mybatis-->
+    <!--https://mapperhelper.github.io/docs/3.usembg/-->
     <dependency>
         <groupId>tk.mybatis</groupId>
         <artifactId>mapper-spring-boot-starter</artifactId>
@@ -91,6 +92,10 @@
         <groupId>com.github.pagehelper</groupId>
         <artifactId>pagehelper-spring-boot-starter</artifactId>
         <version>1.1.0</version>
+    </dependency>
+    <dependency>
+        <groupId>mysql</groupId>
+        <artifactId>mysql-connector-java</artifactId>
     </dependency>
     <dependency>
         <groupId>junit</groupId>

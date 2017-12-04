@@ -1,5 +1,6 @@
 package com.webMagic.controller.video;
 
+import com.github.pagehelper.PageInfo;
 import com.webMagic.model.MessageObject;
 import com.webMagic.model.VideoModel;
 import com.webMagic.service.VideoService;
@@ -39,11 +40,10 @@ public class VideoList {
         Pageable pageable = new PageRequest(pages - 1, 10000, sort);
         try{
             //查詢
-            List<VideoModel> videos = new ArrayList<>();
             VideoModel model = new VideoModel();
             model.setTitle("76");
-            VideoModel videoModel=videoService.selectByPrimaryKey(1);
-            videos.add(videoModel);
+            model.setCreatetime(null);
+            PageInfo<VideoModel> videos=videoService.getDataList(model);
             msg = MessageObject.createSuccessMessage(videos);
         }catch (Exception e){
             msg = MessageObject.createErrorMessage();
