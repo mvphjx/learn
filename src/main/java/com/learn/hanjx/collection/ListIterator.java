@@ -3,6 +3,8 @@ package com.learn.hanjx.collection;
  * list遍历方式
  * 迭代器API
  */
+import org.junit.*;
+
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -50,6 +52,6 @@ public class ListIterator {
         Long timeStop = System.currentTimeMillis();
 
         return timeStop -timeStart ;
-    }    
- 
+    }
+
 }
