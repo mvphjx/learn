@@ -12,7 +12,7 @@ public class Factory {
 	/**
 	 *  获得增强之后的目标类，即添加了切入逻辑advice之后的目标类 
 	 * @param proxy
-	 * @param 泛型<T> c 
+	 * @param <T> c  泛型
 	 * @return
 	 */
     public static  <T> T  getInstance(CglibProxy proxy,Class<T> c) {  

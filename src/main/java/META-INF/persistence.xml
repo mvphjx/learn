@@ -27,7 +27,7 @@
 				update 如果表不存在则会更新表,或者代码中加了属性,导致表生成一列
 			-->
 			<property name="hibernate.connection.pool_size" value="100"/>
-			<property name="hibernate.hbm2ddl.auto" value="update"/>
+			<property name="hibernate.hbm2ddl.auto" value="create"/>
 			
 			<property name="hibernate.show_sql" value="false" />
 			<property name="hibernate.format_sql" value="false" /> 

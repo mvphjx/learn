@@ -3,17 +3,13 @@ package llk;
  * 解析bmp
  */
 
-import java.awt.Color;
+import javax.imageio.ImageIO;
+import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.io.BufferedInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
-
-import javax.imageio.ImageIO;
 
 /**
  * @author 
