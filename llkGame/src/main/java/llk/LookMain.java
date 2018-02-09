@@ -1,34 +1,33 @@
 package llk;
 
+import cn.com.beans.MethodCountInfo;
+import llk.model.Point;
+import method.*;
+import win32.Mouse;
+import win32.Window;
+
+import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.HashSet;
-import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
-import javax.imageio.ImageIO;
-
-import llk.model.Point;
-import method.Config;
-import method.CountAction;
-import method.LookAndLook0;
-import method.LookAndLook1;
-import method.LookAndLook11;
-import method.LookAndLook2;
-import method.LookAndLook3;
-
-import win32.Mouse;
-import win32.Window;
-import cn.com.beans.MethodCountInfo;
-
+/**
+ * 代码需要重构  //TODO  2017年12月31日13:57:20
+ *  首先规定单一职责，不同算法，使用开闭原则。面向接口编程
+ *
+ *  1 win32函数获取图像
+ *  2 图像抽象为java对象
+ *  3 使用算法，计算出路径
+ *  4 win32函数  进行点击
+ *  5 额外功能，记录算法相关参数  例如运行时间，时间复杂度等
+ *
+ */
 public class LookMain {
 	private static Config config;
 	private static Long count=0L;
@@ -43,6 +42,7 @@ public class LookMain {
 		}
 		int hwnd = Window.getHwnd("QQ游戏 - 连连看角色版");// 取游戏窗口句柄
 		if (hwnd <= 0) {
+			System.out.println("获取游戏窗口句柄 失败！");
 			return;
 		}
 		String save=config.getProperty("save");
@@ -61,15 +61,11 @@ public class LookMain {
 			/*不保存截图，把图直接放在缓存中处理
 			 * 解析位图  遍历比较像素密度  
 			 */
-			
 			bmp = new NewBMP(Window.getImage(hwnd));
 		}
 		try {
 			// 游戏截图( 游戏窗口不能被其它窗口遮挡 .否则截图会截到其它窗口 )
-			
 			int blank;// 这个值是空白区的颜色值
-
-
 			// QQ连连看是 11 * 19 矩阵
 			int[][] n = new int[11][19];
 			Set<Fangkuai> set = new HashSet<Fangkuai>();
@@ -87,12 +83,10 @@ public class LookMain {
 							n[i][j] = type;
 						}
 					}
-
 				}
 			}			
 			System.out.println(set.size());
 			// 鼠标自动点击
-
 			Long time=0L;//延迟时间
 			int methodnum=0;//调用哪个方法  1  11   2   3    。。。。 缺省方法0
 			try{

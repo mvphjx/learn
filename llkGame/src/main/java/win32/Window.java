@@ -7,6 +7,9 @@ import java.awt.image.BufferedImage;
 
 public class Window {
 
+	static {
+		System.setProperty("jna.encoding","GBK");//设置编码，防止乱码
+	}
 	private static User32 user32 = User32.INSTANCE;
 
 	// 取窗口句柄

@@ -47,6 +47,7 @@ public class upload {
         }.start();
         System.out.println("Runnable");
         js.executeScript("$(\"#test\").click()");
+        js.executeScript("alert(1)");
 
     }
     @Test

@@ -12,13 +12,14 @@ import java.util.Properties;
  */
 @SuppressWarnings("serial")
 public class Config extends Properties {
+	private static final  String configPath= "src\\main\\resources\\config.properties";
 	private static Config config;
 
 	private Config()
 	{
 		InputStream iStream;
 		try {
-			iStream = new FileInputStream("config.properties");
+			iStream = new FileInputStream(configPath);
 			this.load(iStream);
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
@@ -37,5 +38,6 @@ public class Config extends Properties {
 		}
 		return config;
 	}
+
 
 }

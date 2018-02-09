@@ -1,5 +1,7 @@
 package cn.com.db;
 
+import method.Config;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;

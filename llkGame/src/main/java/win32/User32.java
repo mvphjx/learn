@@ -8,9 +8,11 @@ public interface User32 extends StdCallLibrary{
 	User32 INSTANCE = (User32)Native.loadLibrary("User32",User32.class);
 	
 	int PostMessageA(int a,int b,int c,int d);
-	
+
 	int FindWindowA(String a,String b);
-	
+
+	int GetDesktopWindow(); // 取桌面句柄
+
 	int GetWindowRect(int hwnd,Rect r);
 	
 }
