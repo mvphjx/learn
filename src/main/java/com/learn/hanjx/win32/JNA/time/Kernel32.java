@@ -1,11 +1,12 @@
 package com.learn.hanjx.win32.JNA.time;
 
-import com.sun.jna.*; 
-import com.sun.jna.win32.*; 
 
-public interface Kernel32 extends StdCallLibrary 
+import com.sun.jna.Structure;
+import com.sun.jna.win32.StdCallLibrary;
+
+public interface Kernel32 extends StdCallLibrary
 { 
-   public static class SystemTime extends Structure 
+   public static class SystemTime extends Structure
    { 
       public short wYear; 
       public short wMonth; 

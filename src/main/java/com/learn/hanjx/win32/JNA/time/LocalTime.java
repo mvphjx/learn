@@ -1,5 +1,7 @@
 package com.learn.hanjx.win32.JNA.time;
 
+import com.sun.jna.Native;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -7,7 +9,7 @@ import java.util.Date;
 
 
 
-import com.sun.jna.*; 
+
 
 public class LocalTime 
 { 
@@ -25,7 +27,7 @@ public class LocalTime
 	public static String getSystemTime() 
 	{
 	    String date=null;
-	    Kernel32 lib = (Kernel32) Native.loadLibrary ("kernel32",Kernel32.class); 
+	    Kernel32 lib = (Kernel32) Native.loadLibrary ("kernel32",Kernel32.class);
 	    Kernel32.SystemTime time = new Kernel32.SystemTime (); 
 	    lib.GetSystemTime(time); 
 	      
