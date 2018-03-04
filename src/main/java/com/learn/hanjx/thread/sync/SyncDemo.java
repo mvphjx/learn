@@ -6,7 +6,7 @@ import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
 /**
- * 线程同步
+ * 线程同步  实现共享变量 读写的原子性
  * synchronized 关键字
  * volatile
  */

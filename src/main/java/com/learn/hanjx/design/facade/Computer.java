@@ -1,5 +1,8 @@
 package com.learn.hanjx.design.facade;
 
+/**
+ * 计算机类属性包含 CPU 内存 硬盘，让他们彼此之间解耦
+ */
 public class Computer {
 	private CPU cpu;
 	private Memory memory;

@@ -1,20 +1,12 @@
 package com.learn.hanjx.design.facade;
-
 /**
-Fa莽ade锛堝瑙傦級
-
-浣滅敤锛?
-锛?锛夊皝瑁呬竴缁勪氦浜掔被锛屼竴鑷村湴瀵瑰鎻愪緵鎺ュ彛
-锛?锛夊皝瑁呭瓙绯荤粺锛岀畝鍖栧瓙绯荤粺璋冪敤
-JDK涓綋鐜帮細java.util.logging鍖?
+ * 外观模式是为了解决类与类之家的依赖关系的，像spring一样，可以将类和类之间的关系配置到配置文件中。
+ * 而外观模式就是将他们的关系放在一个Facade类中，降低了类类之间的耦合度
  */
 public class Test {
-/*
- * 妯℃嫙鍦烘櫙锛岀敤鎴锋搷浣滆绠楁満
- */
-	public static void main(String[] args) {
-		Computer computer = new Computer();
-		computer.startup();
-		computer.shutdown();
-	}
+    public static void main(String[] args) {
+        Computer computer = new Computer();
+        computer.startup();
+        computer.shutdown();
+    }
 }
