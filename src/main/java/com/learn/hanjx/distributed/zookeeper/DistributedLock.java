@@ -67,12 +67,17 @@ public class DistributedLock implements Lock, Watcher{
     /**
      * zookeeper节点的监视器
      */
+    @Override
     public void process(WatchedEvent event) {
         if(this.latch != null) {  
             this.latch.countDown();  
         }
     }
-     
+
+    /**
+     * {@link Lock}
+     */
+    @Override
     public void lock() {
         if(exception.size() > 0){
             throw new LockException(exception.get(0));
@@ -91,7 +96,8 @@ public class DistributedLock implements Lock, Watcher{
             throw new LockException(e);
         } 
     }
- 
+
+    @Override
     public boolean tryLock() {
         try {
             String splitStr = "_lock_";
@@ -140,20 +146,10 @@ public class DistributedLock implements Lock, Watcher{
         }
         return false;
     }
- 
-    private boolean waitForLock(String lower, long waitTime) throws InterruptedException, KeeperException {
-        Stat stat = zk.exists(root + "/" + lower,true);
-        //判断比自己小一个数的节点是否存在,如果不存在则无需等待锁,同时注册监听
-        if(stat != null){
-            System.out.println("Thread " + Thread.currentThread().getId() + " [waiting for] " + root + "/" + lower);
-            this.latch = new CountDownLatch(1);
-            this.latch.await(waitTime, TimeUnit.MILLISECONDS);
-            //return waitForLock(lower,waitTime);            
-        }
-        this.latch = null;
-        return true;
-    }
- 
+
+
+
+    @Override
     public void unlock() {
         try {
             System.out.println(myZnode+"  [unlock] ");
@@ -166,15 +162,30 @@ public class DistributedLock implements Lock, Watcher{
             e.printStackTrace();
         }
     }
- 
+
+    @Override
     public void lockInterruptibly() throws InterruptedException {
         this.lock();
     }
- 
+
+    @Override
     public Condition newCondition() {
         return null;
     }
-     
+
+    private boolean waitForLock(String lower, long waitTime) throws InterruptedException, KeeperException {
+        Stat stat = zk.exists(root + "/" + lower,true);
+        //判断比自己小一个数的节点是否存在,如果不存在则无需等待锁,同时注册监听
+        if(stat != null){
+            System.out.println("Thread " + Thread.currentThread().getId() + " [waiting for] " + root + "/" + lower);
+            this.latch = new CountDownLatch(1);
+            this.latch.await(waitTime, TimeUnit.MILLISECONDS);
+            //return waitForLock(lower,waitTime);
+        }
+        this.latch = null;
+        return true;
+    }
+
     public static void main(String[] args) throws IOException, KeeperException, InterruptedException {
     	ZooKeeper zk = new ZooKeeper("127.0.0.1:2181", 3000, null);
 		  System.out.println("=========创建节点===========");
