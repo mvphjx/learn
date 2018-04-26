@@ -16,10 +16,10 @@ import com.learn.hanjx.thread.pool.MyTask;
 
 public class JunitThread {
 	{
-		System.out.print("jvm可用线程："+Runtime.getRuntime().availableProcessors());
-		System.out.print("->JUnit多线程测试");
-		System.out.print("->线程池[ExecutorService]可以通过shutdowm与awaitTermination配合实现");
-		System.out.print("->线程池[ExecutorService]也可以通过 callable 返回值（回调）实现");
+		System.out.println("jvm可用线程："+Runtime.getRuntime().availableProcessors());
+		System.out.println("->JUnit多线程测试");
+		System.out.println("->线程池[ExecutorService]可以通过shutdowm与awaitTermination配合实现");
+		System.out.println("->线程池[ExecutorService]也可以通过 callable 返回值（回调）实现");
 		System.out.println("->线程[Thread]可以通过join实现");
 		
 	}

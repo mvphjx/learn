@@ -3,9 +3,14 @@ package com.learn.hanjx.thread.task;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.ScheduledThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 
 import org.junit.Test;
+
+import static java.util.concurrent.TimeUnit.SECONDS;
+
 /**
  * 验证定时器   ScheduledExecutorService  优于   Timer
  * 
@@ -31,10 +36,35 @@ public class TimerTaskAndScheduledExecutorService {
             }
         }, 1000, 1000);
 	}
+	// TODO  无法测试
 	@Test
-	public void ScheduledExecutorServiceTest() {
-		ScheduledExecutorService se = new ScheduledThreadPoolExecutor(10);
-		Runnable command =null;
-		se.execute(command);
+	public void ScheduledExecutorServiceTest() throws InterruptedException
+    {
+		ScheduledExecutorService scheduler = new ScheduledThreadPoolExecutor(10);
+		Runnable beeper = new Runnable() {
+			public void run() { System.out.println("beep"); }
+		};
+		ScheduledFuture<?> beeperHandle =
+				scheduler.scheduleAtFixedRate(beeper, 1, 2, SECONDS);
+		scheduler.schedule(new Runnable() {
+			public void run() { beeperHandle.cancel(true); }
+		}, 10, SECONDS);
+        scheduler.shutdown();
+        scheduler.awaitTermination(1, TimeUnit.HOURS);
+	}
+
+	public static void main(String[] args) throws InterruptedException
+    {
+		ScheduledExecutorService scheduler = new ScheduledThreadPoolExecutor(10);
+		Runnable beeper = new Runnable() {
+			public void run() { System.out.println("beep"); }
+		};
+		//每10秒执行一次 警报
+		ScheduledFuture<?> beeperHandle =
+				scheduler.scheduleAtFixedRate(beeper, 1, 2, SECONDS);
+        //10秒后关闭
+        scheduler.schedule(new Runnable() {
+            public void run() { beeperHandle.cancel(true); }
+        }, 10, SECONDS);
 	}
 }

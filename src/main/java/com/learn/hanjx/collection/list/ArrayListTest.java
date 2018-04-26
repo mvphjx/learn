@@ -86,4 +86,25 @@ public class ArrayListTest {
 			System.out.println(list.toArray().toString());
 		}
 	}
+	public List<Long> ids1 = new ArrayList<>();
+	public List<Long> ids2 = new ArrayList<>();
+	{
+		ids1.add(1L);
+		ids1.add(5L);
+		ids1.add(10L);
+		ids1.add(20L);
+		ids1.add(25L);
+		ids2.add(1L);
+		ids2.add(4L);
+		ids2.add(8L);
+		ids2.add(12L);
+		ids2.add(16L);
+		ids2.add(20L);
+	}
+	@Test
+	//交集
+	public void ListRetainTest() {
+		ids1.retainAll(ids2);
+		System.out.println(ids1);
+	}
 }
