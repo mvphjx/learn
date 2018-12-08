@@ -3,6 +3,8 @@ package com.learn.hanjx.util.json;
 import java.io.IOException;
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.annotation.PropertyAccessor;
 import com.fasterxml.jackson.core.JsonGenerationException;
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.core.JsonParser;
@@ -19,6 +21,7 @@ public class JsonUtil {
     public static String createJsDataByJackson(Object obj)
     {
         ObjectMapper mapper = new ObjectMapper();
+        mapper.setVisibility(PropertyAccessor.FIELD, JsonAutoDetect.Visibility.ANY);
         String result = "";
         try
         {
@@ -42,7 +45,6 @@ public class JsonUtil {
 
     /**
      * jackson实现object转json
-     * @param obj
      * @return String
      */
     public static <T> T createObjectByJackson(String json, Class<T> valueType)

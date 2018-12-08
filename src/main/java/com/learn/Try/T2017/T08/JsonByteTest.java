@@ -7,6 +7,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Date;
+import java.util.Random;
 
 /**
  * Created by han on 2017/8/14.
@@ -17,9 +18,17 @@ public class JsonByteTest
 {
     public static void main(String[] args)
     {
-        byte[] bs = {1, 2, 3, 4, 5, 7, 8};
-        String json = JsonUtil.createJsDataByJackson(bs);
+        CellInfo cellInfo = new CellInfo();
+        String json = JsonUtil.createJsDataByJackson(cellInfo);
         System.out.println(json);
-        System.out.println(Arrays.toString(MsgBase64.fromBase64(json)));
+    }
+}
+class CellInfo{
+    byte[] value = {1, 2, 3, 4, 5, 7, 8};
+    public int	cprLength = 2;
+    {
+        int length = 300;
+        value = new byte[3000];
+        new Random().nextBytes(value);
     }
 }
