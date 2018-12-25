@@ -19,7 +19,7 @@ public class First
 {
     public static void main(String[] args) throws Exception
     {
-        List<NameValuePair> formparams = new ArrayList<NameValuePair>();
+        List<NameValuePair> formparams = new ArrayList<>();
         formparams.add(new BasicNameValuePair("account", ""));
         formparams.add(new BasicNameValuePair("password", ""));
         HttpEntity reqEntity = new UrlEncodedFormEntity(formparams, "utf-8");

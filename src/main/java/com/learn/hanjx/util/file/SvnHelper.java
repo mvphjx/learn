@@ -27,7 +27,7 @@ public class SvnHelper
      *
      * @param args
      */
-    public static final String PATH_NAME = "D:/workspace/habis-web/trunk";
+    public static final String PATH_NAME = "D:/workspace_svn/{{repository}}/trunk/{{project}}";
     public static final String SVN_CFG = "C:/Users/han/Desktop/2018/work/09/svn-abisweb-201813-.xlsx";
     public static final String POM_TEMPLETE = "D:/workspace/NEW_WEB/pom.bak";
     public static void main(String[] args) throws Exception
@@ -67,6 +67,7 @@ public class SvnHelper
         }
     }
 
+    //创建工程
     private static void createProject(XSSFRow row) throws Exception
     {
         if (ABISHelper.isEmpty(row))
@@ -76,27 +77,63 @@ public class SvnHelper
         List<String> dirs= new ArrayList<>();
         dirs.add("/src/main/resources");
         dirs.add("/src/test/java");
-        dirs.add("\\src\\main\\resources\\META-INF\\resources\\js");
-        dirs.add("\\src\\main\\resources\\META-INF\\resources\\jsp");
-        dirs.add("\\src\\main\\resources\\META-INF\\resources\\css");
-        dirs.add("\\src\\main\\resources\\META-INF\\resources\\image");
-        XSSFCell prijectCell = row.getCell(1);
-        String stringCellValue = prijectCell.getStringCellValue();
-        String projectPath = PATH_NAME + "/" + stringCellValue;
-        String[] packeges = stringCellValue.split("_");
-        String thispackege= "";
-        for (String packege : packeges)
-        {
-            if(!"web".equalsIgnoreCase(packege)){
-                thispackege=thispackege+packege;
-            }
+        dirs.add("\\src\\main\\resources\\META-INF\\resources\\js\\abis");
+        dirs.add("\\src\\main\\resources\\META-INF\\resources\\jsp\\abis");
+        dirs.add("\\src\\main\\resources\\META-INF\\resources\\css\\abis");
+        dirs.add("\\src\\main\\resources\\META-INF\\resources\\image\\abis");
+        dirs.add("\\src\\main\\resources\\META-INF\\resources\\html\\abis");
+        if(ABISHelper.isEmpty(row.getCell(0))||ABISHelper.isEmpty(row.getCell(1))){
+            return;
         }
-        dirs.add("\\src\\main\\java\\com\\hisign\\pu\\abis\\abisweb\\"+thispackege+"\\ctrl");
-        dirs.add("\\src\\main\\java\\com\\hisign\\pu\\abis\\abisweb\\"+thispackege+"\\biz");
-        dirs.add("\\src\\main\\java\\com\\hisign\\pu\\abis\\abisweb\\"+thispackege+"\\dao");
-        dirs.add("\\src\\main\\java\\com\\hisign\\pu\\abis\\abisweb\\"+thispackege+"\\data");
-        dirs.add("\\src\\main\\java\\com\\hisign\\pu\\abis\\abisweb\\"+thispackege+"\\entity");
-        dirs.add("\\src\\main\\java\\com\\hisign\\pu\\abis\\abisweb\\"+thispackege+"\\util");
+        String  repository = row.getCell(0).getStringCellValue();
+        String  project = row.getCell(1).getStringCellValue();
+        String projectPath =PATH_NAME.replace("{{repository}}",repository).replace("{{project}}",project);
+        //web_base
+        //habis_web_product_all
+        //drj_web_product_all
+        String[] packeges = project.split("_");
+        String thispackege =project.replace("habis_web_","").replace("drj_web_","").replace("web_","").replace("_","");
+        switch (repository){
+            case "web-common":
+                dirs.add("\\src\\main\\java\\com\\hisign\\pu\\abis\\web\\"+thispackege+"\\ctrl");
+                dirs.add("\\src\\main\\java\\com\\hisign\\pu\\abis\\web\\"+thispackege+"\\biz");
+                dirs.add("\\src\\main\\java\\com\\hisign\\pu\\abis\\web\\"+thispackege+"\\dao");
+                dirs.add("\\src\\main\\java\\com\\hisign\\pu\\abis\\web\\"+thispackege+"\\data");
+                dirs.add("\\src\\main\\java\\com\\hisign\\pu\\abis\\web\\"+thispackege+"\\entity");
+                dirs.add("\\src\\main\\java\\com\\hisign\\pu\\abis\\web\\"+thispackege+"\\util");
+                dirs.add("\\src\\main\\resources\\META-INF\\resources\\abis\\"+thispackege+"\\js");
+                dirs.add("\\src\\main\\resources\\META-INF\\resources\\abis\\"+thispackege+"\\jsp");
+                dirs.add("\\src\\main\\resources\\META-INF\\resources\\abis\\"+thispackege+"\\css");
+                dirs.add("\\src\\main\\resources\\META-INF\\resources\\abis\\"+thispackege+"\\image");
+                dirs.add("\\src\\main\\resources\\META-INF\\resources\\abis\\"+thispackege+"\\html");
+                break;
+            case "habis-web":
+                dirs.add("\\src\\main\\java\\com\\hisign\\pu\\abis\\web\\abis\\"+thispackege+"\\ctrl");
+                dirs.add("\\src\\main\\java\\com\\hisign\\pu\\abis\\web\\abis\\"+thispackege+"\\biz");
+                dirs.add("\\src\\main\\java\\com\\hisign\\pu\\abis\\web\\abis\\"+thispackege+"\\dao");
+                dirs.add("\\src\\main\\java\\com\\hisign\\pu\\abis\\web\\abis\\"+thispackege+"\\data");
+                dirs.add("\\src\\main\\java\\com\\hisign\\pu\\abis\\web\\abis\\"+thispackege+"\\entity");
+                dirs.add("\\src\\main\\java\\com\\hisign\\pu\\abis\\web\\abis\\"+thispackege+"\\util");
+                dirs.add("\\src\\main\\resources\\META-INF\\resources\\abis\\"+thispackege+"\\js");
+                dirs.add("\\src\\main\\resources\\META-INF\\resources\\abis\\"+thispackege+"\\jsp");
+                dirs.add("\\src\\main\\resources\\META-INF\\resources\\abis\\"+thispackege+"\\css");
+                dirs.add("\\src\\main\\resources\\META-INF\\resources\\abis\\"+thispackege+"\\image");
+                dirs.add("\\src\\main\\resources\\META-INF\\resources\\abis\\"+thispackege+"\\html");
+                break;
+            case "drj-web":
+                dirs.add("\\src\\main\\java\\com\\hisign\\pu\\drj\\web\\"+thispackege+"\\ctrl");
+                dirs.add("\\src\\main\\java\\com\\hisign\\pu\\drj\\web\\"+thispackege+"\\biz");
+                dirs.add("\\src\\main\\java\\com\\hisign\\pu\\drj\\web\\"+thispackege+"\\dao");
+                dirs.add("\\src\\main\\java\\com\\hisign\\pu\\drj\\web\\"+thispackege+"\\data");
+                dirs.add("\\src\\main\\java\\com\\hisign\\pu\\drj\\web\\"+thispackege+"\\entity");
+                dirs.add("\\src\\main\\java\\com\\hisign\\pu\\drj\\web\\"+thispackege+"\\util");
+                dirs.add("\\src\\main\\resources\\META-INF\\resources\\drj\\"+thispackege+"\\js");
+                dirs.add("\\src\\main\\resources\\META-INF\\resources\\drj\\"+thispackege+"\\jsp");
+                dirs.add("\\src\\main\\resources\\META-INF\\resources\\drj\\"+thispackege+"\\css");
+                dirs.add("\\src\\main\\resources\\META-INF\\resources\\drj\\"+thispackege+"\\image");
+                dirs.add("\\src\\main\\resources\\META-INF\\resources\\drj\\"+thispackege+"\\html");
+                break;
+        }
         if(new File(projectPath).isDirectory()){
             return;
         }
@@ -109,13 +146,12 @@ public class SvnHelper
         SAXReader reader = new SAXReader();
         Document doc = reader.read(pom);
         Element  artifactId =(Element) doc.selectSingleNode("/*[name()='project']/*[name()='artifactId']");
-        //artifactId.setText(stringCellValue.replace("_","-"));
-        artifactId.setText(stringCellValue);
+        artifactId.setText(project);
         Element  version =(Element) doc.selectSingleNode("/*[name()='project']/*[name()='parent']/*[name()='version']");
         version.setText("0.0.1-SNAPSHOT");
         Element  parent =(Element) doc.selectSingleNode("/*[name()='project']/*[name()='parent']/*[name()='artifactId']");
         Element  packaging =(Element) doc.selectSingleNode("/*[name()='project']/*[name()='packaging']");
-        if (stringCellValue.contains("parent"))
+        if (project.contains("parent"))
         {
             parent.setText("parent");
             packaging.setText("pom");
@@ -124,9 +160,10 @@ public class SvnHelper
             packaging.setText("jar");
         }
         Element  dependencies =(Element) doc.selectSingleNode("/*[name()='project']/*[name()='dependencies']");
-        if(stringCellValue.contains("parent")||stringCellValue.contains("common")||stringCellValue.contains("base")){
+        if(project.contains("parent")||project.contains("common")||project.contains("base")){
             dependencies.setText("");
         }else{
+
         }
         saveXMLToDisk(doc,projectPath+"/pom.xml");
 
