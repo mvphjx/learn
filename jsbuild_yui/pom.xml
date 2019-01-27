@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>learn</artifactId>
+        <groupId>com</groupId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+    <packaging>jar</packaging>
+    <artifactId>jsbuild_yui</artifactId>
+
+<dependencies>
+</dependencies>
+    <properties>
+        <!-- 编译编码设定 -->
+        <build.source.encoding>UTF-8</build.source.encoding>
+        <!-- webapp source dir -->
+        <webapp.src.dir>${basedir}/src/main/resources/META-INF/js</webapp.src.dir>
+        <!-- 默认的js&css输出总目录 -->
+        <yuicompressor.output.dir>target/classes</yuicompressor.output.dir>
+    </properties>
+<build><plugins>
+    <plugin>
+        <groupId>net.alchim31.maven</groupId>
+        <artifactId>yuicompressor-maven-plugin</artifactId>
+        <version>1.4.0</version>
+        <executions>
+            <execution>
+                <!-- 在真正的打包之前，执行一些准备打包压缩操作的操作  -->
+                <phase>prepare-package</phase>
+                <goals>
+                    <goal>compress</goal>
+                </goals>
+            </execution>
+        </executions>
+        <configuration>
+            <encoding>UTF-8</encoding>
+            <jswarn>false</jswarn>
+            <nosuffix>true</nosuffix>
+            <linebreakpos>-1</linebreakpos>
+            <!-- 输出主目录 where to put the generate files -->
+            <outputDirectory>${yuicompressor.output.dir}</outputDirectory>
+            <!-- 待处理文件目录 directory where source files will be pulled from -->
+            <sourceDirectory>${webapp.src.dir}</sourceDirectory>
+            <webappDirectory>${yuicompressor.output.dir}</webappDirectory>
+
+            <!-- 压缩的文件 工程里面所有的 js css 后缀的都会压缩 -->
+            <includes>
+                <include>**/test.js</include>
+                <include>**/*.css</include>
+            </includes>
+            <!-- 不需要压缩的文件 -->
+            <excludes>
+                <exclude>**/style.css</exclude>
+            </excludes>
+            <failOnWarning>false</failOnWarning>
+        </configuration>
+    </plugin>
+    <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jar-plugin</artifactId>
+        <version>3.1.0</version>
+        <configuration>
+            <excludes>/META-INF/product/**/*.js</excludes>
+        </configuration>
+    </plugin>
+</plugins>
+
+
+</build>
+</project>

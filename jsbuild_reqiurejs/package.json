@@ -1,0 +1,10 @@
+{
+  "scripts": {
+    "package": "node src/main/resources/META-INF/tool/r.js -o src/main/resources/META-INF/tool/app.build.js",
+    "dev": "node r.js -o app.build.js",
+    "build": "node r.js -o app.build.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
