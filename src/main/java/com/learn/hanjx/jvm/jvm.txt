@@ -53,6 +53,7 @@ JVM用持久代（Permanet Generation）来存放方法区，可通过-XX:PermSi
 bug实战
 
 -------------bin/JavaVisualVM 工具可以进行 heapdump（heap队dump内存镜像） threaddump的分析
+设置JVM参数 收集dump文件 -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/tmp
 1、Tomcat内存溢出，直接崩溃
       定位：查看崩溃日志，线程数正常；然后因为tomcat已经崩溃了无法查询其他相关信息，第一次简单粗暴解决；
       直接将内存从900+M调整为2G（我们设备内存4G），然后重启tomcat；重启后持续观察内存是否增长，查看内存回收情况、查看内存分配情况、dump内存文件进行分析，

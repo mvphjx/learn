@@ -6,12 +6,14 @@ import java.sql.SQLException;
 import java.util.Vector;
 
 /**
-Flyweight（享元）
+Flyweight（共享模式、享元）
 
 作用：共享对象，节省内存，缓存
 JDK中体现：
 （1）Integer.valueOf(int i)；Character.valueOf(char c)
-（2）String常量池
+（2）String常量池  例如多个对象引用 单词"Hello",jvm指向一个常量，节约内存
+项目中体现
+	Spring 单例组件，可以被多个业务组件同时使用
  */
 public class ConnectionPool {
 	

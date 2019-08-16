@@ -7,6 +7,11 @@ Decorator（装饰器）
 JDK中体现：
 （1）java.io包
 （2）java.util.Collections#synchronizedList(List)
+
+ Decorator（装饰器） VS  Proxy 代理模式
+ The difference is the intent of the patterns. 目的不一致，都是事先方式都是包装（中间层）实现
+ Proxy controls access to the object. 针对访问控制
+ Decorator is used to add responsibilities to the object. 针对功能（接口、方法） 增删
  */
 public class DecoratorTest {
 
