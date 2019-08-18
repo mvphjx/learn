@@ -1,0 +1,76 @@
+.window_boundBox {
+    position: fixed;
+    border: 1px solid burlywood;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.5);
+    background-color: #fff;
+}
+
+.window_alertBtn{
+    width: 100px;
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    margin-left: -50px;
+}
+.window_closeBtn {
+    background: lightseagreen;
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 5px 10px;
+    font-size: 20px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.window_header{
+    background: #333;
+    color: #ffffff;
+    text-align: center;
+    padding: 5px;
+    font-size: 20px;
+}
+
+.window_footer{
+    text-align: center;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    padding-bottom: 10px;
+}
+
+.window_cancelBtn{
+    margin-left:20px;
+}
+
+.window_mask{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    opacity: 0.3;
+    left: 0;
+    top: 0;
+    background-color: #000;
+}
+
+.window_promptInputWrapper{
+    text-align: center;
+}
+
+/*自定义皮肤*/
+/*skin for a*/
+/*同级选择两个类之间无空间*/
+.window_skin_a.window_boundBox{
+    background-color: lightsalmon;
+}
+/*子级选择两个类之间有空间*/
+.window_skin_a .window_header{
+    background-color: pink;
+}
+
+.window_skin_a .window_alertBtn{
+    background-color: lightyellow;
+}
+.window_skin_a .window_closeBtn{
+    background-color: lightblue;
+}
