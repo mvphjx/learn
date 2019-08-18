@@ -48,7 +48,7 @@ public class NioServer {
          */
         for (;;) { // while(true) c for;;
             /**
-             * TODO 获取可用channel数量
+             * TODO 获取可用channel数量   jdk nio的bug  空轮询？？
              */
             int readyChannels = selector.select();
 
