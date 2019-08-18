@@ -9,7 +9,8 @@
     file  UDP  TCP
 
 ##Buffer缓冲区
-
+    一块内存，用来读写channel的数据
+###属性    
 * 容量Capacity 
 * 位置Position 
 * Limit上限 
@@ -17,10 +18,11 @@
 
     
 
-
 ##Selector 多路复用器
 #### IO就绪选择 NIO编程模型核心
 
+##SelectionKey 选择键
+`四种就绪状态常量`
 
 #NIO DEMO概述
 
