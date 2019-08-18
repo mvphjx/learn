@@ -45,7 +45,11 @@
  -  function 
  
     函数接口 @since1.8
- *
+ 
+ -  stream
+ 
+    函数编程 管道流水线模式 pipeline    
+ 
 ###java.io    
    这里面是所有输入输出有关的类，比如文件操作等。
 ###java.nio    
