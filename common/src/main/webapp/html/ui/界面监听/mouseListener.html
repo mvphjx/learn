@@ -1,0 +1,22 @@
+<html>     
+<head>  
+<script src="../../js/jquery/jquery.js"></script>   
+<script src="listener.js"></script> 
+	<style> 
+		*{margin:0;padding:0;font-size:12px;} 
+		input{width:120px;height:30px;cursor:pointer;} 
+		#note{position:absolute;width:150px;padding:8px;background:#eee;border:1px solid #ccc;left:40%;z-index:9999;display:none;} 
+	</style> 
+<script type="text/javascript">     
+var ls=new Listener({timeout:5,success:function(){alert(1);ls.init();}});
+ls.init();
+
+</script>     
+    </head>     
+    <body>     
+<p>5s  {timeout:5,success:alert(1)}</p>
+
+		<div id="note">{timeout:5,success:alert(1)}
+		</div> 
+    </body>     
+</html> 

@@ -1,3 +1,0 @@
- http://blog.csdn.net/hmk2011/article/details/6289151
- 
- JPA全称为Java Persistence API ，Java持久化API是Sun公司在Java EE 5规范中提出的Java持久化接口。

@@ -1,0 +1,36 @@
+<html>
+<meta http-equiv="Content-Type" 	content="text/html;charset=utf-8"/>
+
+<body>
+循环：.forEach
+判断：.some和.every
+区分.join和.concat
+栈和队列的实现：.pop, .push, .shift,和 .unshift
+模型映射：.map
+查询：.filter
+排序：.sort
+计算：.reduce和.reduceRight
+复制：.slice
+强大的.splice
+查找：.indexOf
+操作符：in
+走近.reverse
+</body>
+
+<script>
+var arrayObj = new Array();　//创建一个数组  
+arrayObj.a="a";  
+arrayObj.b="b";  
+arrayObj.push("");  
+console.log(arrayObj)  
+delete arrayObj[0];//置空 不完全删除 数组length不变（ 通过下标操作数组）  
+console.log(arrayObj)  
+arrayObj.push("");  
+console.log(arrayObj.length)  
+arrayObj.splice(0,1);//开始位置,删除个数 完全移除  
+console.log(arrayObj.length)  
+delete  arrayObj.a;//删除json对象 （通过.属性名操作json）  
+console.log(arrayObj)  
+</script>
+
+</html>

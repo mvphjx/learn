@@ -1,0 +1,29 @@
+<html>
+<body>
+</body>
+
+<script>
+/*  大致‘继承’关系
+ * tidy-> dog-> Fucntion -> Object
+	原型链是依赖于__proto__，而不是prototype;对象的方法属性会在__proto__中递归查找，找不到undefined
+	 tidy.__proto__ === dog.prototype  //true
+	 dog.prototype.__proto__ === dog.__proto__  //true
+	 dog.__proto__  === Function.prototype  //true
+	 Function.__proto__ === Function.prototype.__proto__  //false
+	 dog.__proto__.__proto__===Object.prototype  //true	 
+ */
+
+
+var animal = function(){};
+var dog = function(){};
+
+animal.price = 2000;//
+dog.prototype = animal;
+var tidy = new dog();
+
+
+console.log(dog.price) //为什么输出 undefined 
+console.log(tidy.price) //为什么输出 2000
+</script>
+
+</html>

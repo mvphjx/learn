@@ -1,0 +1,59 @@
+<html>
+<body>
+</body>
+
+<script>
+/*
+interface Composite{
+    function add(child);
+    function remove(child);
+    function getChild(index);
+}
+
+interface FormItem{
+    function save();
+}
+*/
+var CompositeForm= function(id,method,action){
+  this.implementsInterfaces = ['Composite','FormItem'];
+}
+
+function addForm(formInstance){
+   if(!implements(formInstance,'Composite','FormItem'))
+    throw new Error('Object does notimplement a required interface.')
+}
+
+//下面的implements方法，是用来检查声明对象是否实现了需要的接口
+function implements(object){
+    for(var i=1;i<argements.length;i++){
+        var interfaceName = arguments[i];
+        var interfaceFound =false;
+        for(varj=0;j<object.implementsInterfaces.length;j++){
+           if(object.implementsInterfaces[j]==interfaceName){
+                interfaceFound=true;
+                break;
+            }
+        }
+        if(!interfaceFound)return false;
+    }
+    return true;  //all interfaces were found.
+}
+
+
+
+//
+
+
+var Composite =new Interface('Composite',['add','remove','getChild']);
+var FormItem = new Interface('FormItem',['save']);
+//CompositeFormclass
+var CompositeForm= function(id,method,action){
+      //….
+}
+function addForm(formInstance){
+   ensureImplements(formInstance,Composite,FormItem);
+   //This function will throw an error if a required method is notimplemented.
+}
+</script>
+
+</html>

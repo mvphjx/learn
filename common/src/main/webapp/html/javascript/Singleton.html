@@ -1,0 +1,42 @@
+<html>
+<script>
+var Singleton = (function() {
+    var instanced;
+    function constructor () {
+        var privateAttribute1 = false;
+        var privateAttribute2 = [1, 2, 3];
+        function privateMethod1() {
+        	console.log('privateMethod1');
+        }
+        function privateMethod2(args) {
+        	console.log('privateMethod2');
+        }
+        return {
+            publicAttribute1: true,
+            publicAttribute2: 10,
+        
+            publicMethod1: function() {
+            	console.log('privateMethod11');
+            },
+            publicMethod2: function(args) {
+            	console.log('privateMethod22');
+            }
+        };
+    }
+    return {
+        getInstance: function () {
+            if (!instanced) {
+                instanced = constructor();
+            }
+            return instanced;
+        }
+    };
+})();
+Singleton.getInstance().publicMethod1();
+</script>
+<body>
+单例，闭包，惰性实例化
+</body>
+
+
+</html>

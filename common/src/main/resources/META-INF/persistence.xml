@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.0"
+	xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+
+	<persistence-unit name="JPAUNIT" transaction-type="RESOURCE_LOCAL">
+		<properties>
+<!--			<property name="hibernate.dialect" value="org.hibernate.dialect.Oracle8iDialect" />-->
+<!--            <property name="hibernate.connection.driver_class" value="oracle.jdbc.driver.OracleDriver" />-->
+<!--            <property name="hibernate.connection.username" value="test" />-->
+<!--            <property name="hibernate.connection.password" value="test" />-->
+<!--            <property name="hibernate.connection.url" value="jdbc:oracle:thin:@localhost:1521:orcl" />-->
+
+
+			<!--mysql8 连接配置-->
+			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />
+			<property name="hibernate.connection.driver_class" value="com.mysql.cj.jdbc.Driver" />
+			<property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/test?autoReconnect=true&amp;useUnicode=true&amp;characterEncoding=utf8&amp;useSSL=false&amp;serverTimezone=UTC" />
+			<property name="hibernate.connection.username" value="root" />
+			<property name="hibernate.connection.password" value="root" />
+			<property name="hibernate.max_fetch_depth" value="3"/>
+
+
+			<!--
+				create：表示启动的时候先drop，再create
+				create-drop: 也表示创建，只不过再系统关闭前执行一下drop
+				update: 这个操作启动的时候会去检查schema是否一致，如果不一致会做scheme更新
+				validate: 启动时验证现有schema与你配置的hibernate是否一致，如果不一致就抛出异常，并不做更新
+			-->
+			<property name="hibernate.connection.pool_size" value="100"/>
+			<property name="hibernate.hbm2ddl.auto" value="update"/>
+			<property name="hibernate.show_sql" value="false" />
+			<property name="hibernate.format_sql" value="false" />
+		</properties>
+	</persistence-unit>
+</persistence>

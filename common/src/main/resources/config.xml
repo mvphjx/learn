@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+  
+<beans xmlns="http://www.springframework.org/schema/beans"  
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  
+         xmlns:aop="http://www.springframework.org/schema/aop"  
+         xmlns:tx="http://www.springframework.org/schema/tx"  
+         >  
+               
+      
+    <!-- hanjx start-->
+    <bean id="businessObj" class="com.hanjx.aop.BusinessObjImpl" aop_before="com.hanjx.aop.springaop.BeforeMethodAdvisor" aop_after="com.hanjx.aop.springaop.AfterMethodAdvisor" aopType="before_after"/>  
+    <!-- hanjx end -->
+    <!--<bean id="aspcejHandler" class="com.tgb.aop.AspceJAdvice"/>-->  
+    <aop:config>  
+        <aop:aspect id="aspect" ref="xmlHandler">  
+            <aop:pointcut id="pointUserMgr" expression="execution(* com.tgb.aop.*.find*(..))"/>  
+              
+            <aop:before method="doBefore"  pointcut-ref="pointUserMgr"/>  
+            <aop:after method="doAfter"  pointcut-ref="pointUserMgr"/>  
+            <aop:around method="doAround"  pointcut-ref="pointUserMgr"/>  
+            <aop:after-returning method="doReturn"  pointcut-ref="pointUserMgr"/>  
+            <aop:after-throwing method="doThrowing" throwing="ex" pointcut-ref="pointUserMgr"/>  
+              
+        </aop:aspect>  
+    </aop:config>  
+</beans>  

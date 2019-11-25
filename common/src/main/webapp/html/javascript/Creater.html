@@ -1,0 +1,32 @@
+<html>
+<script>
+function Person(name){
+    this.name = name;
+}
+Person.prototype.sayName=function(){
+	console.log(this.name);
+}
+
+var p= new Person('hi');
+p.sayName();
+</script>
+<body>
+javascript创建对象
+<br></br>
+组合使用构造函数模式和原型模式
+<br></br>
+构造函数模式用于定义实例属性，而原型模式用于定义方法和共享的属性。
+<br></br>
+<br></br>
+function Person(name){
+<br></br>    this.name = name;
+<br></br>}
+<br></br>Person.prototype={
+    <br></br>constructor: Person;
+    <br></br>sayName: function(){}
+<br></br>}
+<br></br>这种模式，是目前在ECMAScript中使用最广泛、认同度最高的一种创建自定义类型的方法。
+</body>
+
+
+</html>

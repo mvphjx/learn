@@ -1,0 +1,6 @@
+1 输入的时候  动态加载li
+2 搜索的时候，不但要匹配 html 还有匹配 pinyin 汉字 代码   results += 1;
+3 展示形式
+4 set数据    获取数据  需要封装
+
+$("#" + this.results_data[option.group_array_index].dom_id)  
