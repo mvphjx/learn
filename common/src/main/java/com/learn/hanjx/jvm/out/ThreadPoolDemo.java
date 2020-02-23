@@ -4,15 +4,11 @@ package com.learn.hanjx.jvm.out;
  * 测试
  * 内存溢出
  * 栈内存堆内存
- * 
+ *
  */
-import com.learn.hanjx.thread.MyThreadIm;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import java.util.concurrent.ThreadPoolExecutor;
 
 public class ThreadPoolDemo
 {

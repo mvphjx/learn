@@ -15,7 +15,6 @@ public class CommonCook {
         // 第三步 用厨具烹饪食材
         System.out.println("第三步：开始展现厨艺");
         cook(thread.chuju, shicai);
-
         System.out.println("总共用时" + (System.currentTimeMillis() - startTime) + "ms");
     }
 
