@@ -45,7 +45,7 @@ public class Test<T1, T2>
         test.getbb(1);
         test.getcc(Test.class);
         test.initFruit(new RedApple());
-        //注意下6:面这个HashMap的括号里面不能是T,E,T1,T2等不确定的东西,但可以是?  
+        //注意下6:面这个HashMap的括号里面不能是T,E,T1,T2等不确定的东西,但可以是?
         HashMap<Object, String> map = new HashMap<Object, String>();
         HashMap<?, ?> map2 = new HashMap<Object, String>();
         List<?> list = new ArrayList<String>();
@@ -58,7 +58,7 @@ public class Test<T1, T2>
         Object obj = new Object();
         System.out.println(" 类内部 get实例类型" + ((T1) obj).getClass());
         System.out.println(" 类内部 get实例类型" + ((T2) obj).getClass());
-        //注意2:T2将自动转型为String,这个不需要去担心  
+        //注意2:T2将自动转型为String,这个不需要去担心
         return (T2) "few";
 
     }
@@ -70,9 +70,9 @@ public class Test<T1, T2>
 
     public <T> Class<?> getcc(Class<T> a)
     {
-        //getcc前面的Class<T>前面缺少<T>将编译错误,注意4:Class<?>里面的问号可以换成T  
+        //getcc前面的Class<T>前面缺少<T>将编译错误,注意4:Class<?>里面的问号可以换成T
         System.out.println("getcc:" + a.getClass().getName());
-        //注意5:参数里面的Class<T>最大的好处是如果方法里面定义了泛型，可以自动获取类型值，比如如下的List<T>可以自动获取到a的类型，不必强调死  
+        //注意5:参数里面的Class<T>最大的好处是如果方法里面定义了泛型，可以自动获取类型值，比如如下的List<T>可以自动获取到a的类型，不必强调死
         List<T> aa = new ArrayList<T>();
         //System.out.println("getcc:"+aa.get(0));
         return a;
@@ -93,12 +93,16 @@ public class Test<T1, T2>
          如果要从集合中写入类型T的数据，并且不需要读取，可以使用 ? super 通配符；(Consumer Super)
          如果既要存又要取，那么就不要使用任何通配符。
          */
+        List<? extends Apple> listExtends = new ArrayList<>();
+        //? extends 通配符  对存储操作  没有 泛型约束
+        listExtends.add(null);
+        Apple apple = listExtends.get(0);
+
         List<? super Apple> listSuper = new ArrayList<>();
         listSuper.add(new Apple());
-        Object object = listSuper.get(0);//no read
-        List<? extends Apple> listExtends = new ArrayList<>();
-        listExtends.add(null);//no wirte
-        Apple apple = listExtends.get(0);
+        // ? super  对读取操作  没有 泛型约束
+        Object object = listSuper.get(0);
+
     }
 }
 
