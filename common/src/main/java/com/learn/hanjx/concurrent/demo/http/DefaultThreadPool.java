@@ -10,19 +10,19 @@ import java.util.concurrent.atomic.AtomicLong;
  */
 public class DefaultThreadPool<Job extends Runnable> implements ThreadPool<Job>
 {
-    // Ïß³Ì³Ø×î´óÏŞÖÆÊı
+    // çº¿ç¨‹æ± æœ€å¤§é™åˆ¶æ•°
     private static final int      MAX_WORKER_NUMBERS     = 10;
-    // Ïß³Ì³ØÄ¬ÈÏµÄÊıÁ¿
+    // çº¿ç¨‹æ± é»˜è®¤çš„æ•°é‡
     private static final int      DEFAULT_WORKER_NUMBERS = 5;
-    // Ïß³Ì³Ø×îĞ¡µÄÊıÁ¿
+    // çº¿ç¨‹æ± æœ€å°çš„æ•°é‡
     private static final int      MIN_WORKER_NUMBERS     = 1;
-    // ÕâÊÇÒ»¸ö¹¤×÷ÁĞ±í£¬½«»áÏòÀïÃæ²åÈë¹¤×÷
+    // è¿™æ˜¯ä¸€ä¸ªå·¥ä½œåˆ—è¡¨ï¼Œå°†ä¼šå‘é‡Œé¢æ’å…¥å·¥ä½œ
     private final LinkedList<Job> jobs                   = new LinkedList<Job>();
-    // ¹¤×÷ÕßÁĞ±í
+    // å·¥ä½œè€…åˆ—è¡¨
     private final List<Worker>    workers                = Collections.synchronizedList(new ArrayList<Worker>());
-    // ¹¤×÷ÕßÏß³ÌµÄÊıÁ¿
+    // å·¥ä½œè€…çº¿ç¨‹çš„æ•°é‡
     private int                   workerNum              = DEFAULT_WORKER_NUMBERS;
-    // Ïß³Ì±àºÅÉú³É
+    // çº¿ç¨‹ç¼–å·ç”Ÿæˆ
     private AtomicLong            threadNum              = new AtomicLong();
 
     public DefaultThreadPool() {
@@ -34,9 +34,10 @@ public class DefaultThreadPool<Job extends Runnable> implements ThreadPool<Job>
         initializeWokers(workerNum);
     }
 
+    @Override
     public void execute(Job job) {
         if (job != null) {
-            // Ìí¼ÓÒ»¸ö¹¤×÷£¬È»ºó½øĞĞÍ¨Öª
+            // æ·»åŠ ä¸€ä¸ªå·¥ä½œï¼Œç„¶åè¿›è¡Œé€šçŸ¥
             synchronized (jobs) {
                 jobs.addLast(job);
                 jobs.notify();
@@ -44,15 +45,17 @@ public class DefaultThreadPool<Job extends Runnable> implements ThreadPool<Job>
         }
     }
 
+    @Override
     public void shutdown() {
         for (Worker worker : workers) {
             worker.shutdown();
         }
     }
 
+    @Override
     public void addWorkers(int num) {
         synchronized (jobs) {
-            // ÏŞÖÆĞÂÔöµÄWorkerÊıÁ¿²»ÄÜ³¬¹ı×î´óÖµ
+            // é™åˆ¶æ–°å¢çš„Workeræ•°é‡ä¸èƒ½è¶…è¿‡æœ€å¤§å€¼
             if (num + this.workerNum > MAX_WORKER_NUMBERS) {
                 num = MAX_WORKER_NUMBERS - this.workerNum;
             }
@@ -61,12 +64,13 @@ public class DefaultThreadPool<Job extends Runnable> implements ThreadPool<Job>
         }
     }
 
+    @Override
     public void removeWorker(int num) {
         synchronized (jobs) {
             if (num >= this.workerNum) {
                 throw new IllegalArgumentException("beyond workNum");
             }
-            // °´ÕÕ¸ø¶¨µÄÊıÁ¿Í£Ö¹Worker
+            // æŒ‰ç…§ç»™å®šçš„æ•°é‡åœæ­¢Worker
             int count = 0;
             while (count < num) {
                 workers.get(count).shutdown();
@@ -76,11 +80,12 @@ public class DefaultThreadPool<Job extends Runnable> implements ThreadPool<Job>
         }
     }
 
+    @Override
     public int getJobSize() {
         return jobs.size();
     }
 
-    // ³õÊ¼»¯Ïß³Ì¹¤×÷Õß
+    // åˆå§‹åŒ–çº¿ç¨‹å·¥ä½œè€…
     private void initializeWokers(int num) {
         for (int i = 0; i < num; i++) {
             Worker worker = new Worker();
@@ -90,33 +95,33 @@ public class DefaultThreadPool<Job extends Runnable> implements ThreadPool<Job>
         }
     }
 
-    // ¹¤×÷Õß£¬¸ºÔğÏû·ÑÈÎÎñ
+    // å·¥ä½œè€…ï¼Œè´Ÿè´£æ¶ˆè´¹ä»»åŠ¡
     class Worker implements Runnable {
-        // ÊÇ·ñ¹¤×÷
+        // æ˜¯å¦å·¥ä½œ
         private volatile boolean running = true;
 
         public void run() {
             while (running) {
                 Job job = null;
                 synchronized (jobs) {
-                    // Èç¹û¹¤×÷ÕßÁĞ±íÊÇ¿ÕµÄ£¬ÄÇÃ´¾Íwait
+                    // å¦‚æœå·¥ä½œè€…åˆ—è¡¨æ˜¯ç©ºçš„ï¼Œé‚£ä¹ˆå°±wait
                     while (jobs.isEmpty()) {
                         try {
                             jobs.wait();
                         } catch (InterruptedException ex) {
-                            // ¸ĞÖªµ½Íâ²¿¶ÔWorkerThreadµÄÖĞ¶Ï²Ù×÷£¬·µ»Ø
+                            // æ„ŸçŸ¥åˆ°å¤–éƒ¨å¯¹WorkerThreadçš„ä¸­æ–­æ“ä½œï¼Œè¿”å›
                             Thread.currentThread().interrupt();
                             return;
                         }
                     }
-                    // È¡³öÒ»¸öJob
+                    // å–å‡ºä¸€ä¸ªJob
                     job = jobs.removeFirst();
                 }
                 if (job != null) {
                     try {
                         job.run();
                     } catch (Exception ex) {
-                        // ºöÂÔJobÖ´ĞĞÖĞµÄException
+                        // å¿½ç•¥Jobæ‰§è¡Œä¸­çš„Exception
                     }
                 }
             }

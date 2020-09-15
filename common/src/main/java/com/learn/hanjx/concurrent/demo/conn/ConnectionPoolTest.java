@@ -5,18 +5,18 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
- * ���ݿ����ӳ�
+ * 数据库连接池
  * 6-18
  */
 public class ConnectionPoolTest {
     static ConnectionPool pool  = new ConnectionPool(10);
-    // ��֤����ConnectionRunner�ܹ�ͬʱ��ʼ
+    // 保证所有ConnectionRunner能够同时开始
     static CountDownLatch start = new CountDownLatch(1);
-    // main�߳̽���ȴ�����ConnectionRunner��������ܼ���ִ��
+    // main线程将会等待所有ConnectionRunner结束后才能继续执行
     static CountDownLatch end;
 
     public static void main(String[] args) throws Exception {
-        // �߳������������߳��������й۲�
+        // 线程数量，可以线程数量进行观察
         int threadCount = 50;
         end = new CountDownLatch(threadCount);
         int count = 20;
@@ -52,8 +52,8 @@ public class ConnectionPoolTest {
             }
             while (count > 0) {
                 try {
-                    // ���̳߳��л�ȡ���ӣ����1000ms���޷���ȡ�������᷵��null
-                    // �ֱ�ͳ�����ӻ�ȡ������got��δ��ȡ��������notGot
+                    // 从线程池中获取连接，如果1000ms内无法获取到，将会返回null
+                    // 分别统计连接获取的数量got和未获取到的数量notGot
                     Connection connection = pool.fetchConnection(1000);
                     if (connection != null) {
                         try {

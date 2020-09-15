@@ -21,17 +21,17 @@ public class ConnectionPool {
     public void releaseConnection(Connection connection) {
         if (connection != null) {
             synchronized (pool) {
-                // Ìí¼ÓºóĞèÒª½øĞĞÍ¨Öª£¬ÕâÑùÆäËûÏû·ÑÕßÄÜ¹»¸ĞÖªµ½Á´½Ó³ØÖĞÒÑ¾­¹é»¹ÁËÒ»¸öÁ´½Ó
+                // æ·»åŠ åéœ€è¦è¿›è¡Œé€šçŸ¥ï¼Œè¿™æ ·å…¶ä»–æ¶ˆè´¹è€…èƒ½å¤Ÿæ„ŸçŸ¥åˆ°é“¾æ¥æ± ä¸­å·²ç»å½’è¿˜äº†ä¸€ä¸ªé“¾æ¥
                 pool.addLast(connection);
                 pool.notifyAll();
             }
         }
     }
 
-    // ÔÚmillsÄÚÎŞ·¨»ñÈ¡µ½Á¬½Ó£¬½«»á·µ»Ønull
+    // åœ¨millså†…æ— æ³•è·å–åˆ°è¿æ¥ï¼Œå°†ä¼šè¿”å›null
     public Connection fetchConnection(long mills) throws InterruptedException {
         synchronized (pool) {
-            // ÍêÈ«³¬Ê±
+            // å®Œå…¨è¶…æ—¶
             if (mills <= 0) {
                 while (pool.isEmpty()) {
                     pool.wait();

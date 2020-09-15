@@ -4,18 +4,30 @@ package com.learn.hanjx.concurrent.demo.http;
  * 6-19
  */
 public interface ThreadPool<Job extends Runnable> {
-    // Ö´ĞĞÒ»¸öJob£¬Õâ¸öJobĞèÒªÊµÏÖRunnable
+    /**
+     * æ‰§è¡Œä¸€ä¸ªJobï¼Œè¿™ä¸ªJobéœ€è¦å®ç°Runnable
+     * @param job
+     */
     void execute(Job job);
 
-    // ¹Ø±ÕÏß³Ì³Ø
+    /**
+     * å…³é—­çº¿ç¨‹æ± 
+     */
     void shutdown();
 
-    // Ôö¼Ó¹¤×÷ÕßÏß³Ì
+    /**
+     * å¢åŠ å·¥ä½œè€…çº¿ç¨‹
+     * @param num
+     */
     void addWorkers(int num);
-
-    // ¼õÉÙ¹¤×÷ÕßÏß³Ì
+    /**
+     * å‡å°‘å·¥ä½œè€…çº¿ç¨‹
+     * @param num
+     */
     void removeWorker(int num);
-
-    // µÃµ½ÕıÔÚµÈ´ıÖ´ĞĞµÄÈÎÎñÊıÁ¿
+    /**
+     * å¾—åˆ°æ­£åœ¨ç­‰å¾…æ‰§è¡Œçš„ä»»åŠ¡æ•°é‡
+     * @return
+     */
     int getJobSize();
 }

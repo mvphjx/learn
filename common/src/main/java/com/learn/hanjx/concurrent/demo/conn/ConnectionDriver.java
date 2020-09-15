@@ -19,7 +19,7 @@ public class ConnectionDriver {
         }
     }
 
-    // ´´½¨Ò»¸öConnectionµÄ´úÀí£¬ÔÚcommitÊ±ĞİÃß1Ãë
+    // åˆ›å»ºä¸€ä¸ªConnectionçš„ä»£ç†ï¼Œåœ¨commitæ—¶ä¼‘çœ 1ç§’
     public static final Connection createConnection() {
         return (Connection) Proxy.newProxyInstance(ConnectionDriver.class.getClassLoader(), new Class<?>[] { Connection.class },
             new ConnectionHandler());
