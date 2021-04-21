@@ -16,6 +16,9 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+/**
+ * 国际化列描述合并
+ */
 public class ColumTest
 {
     /**
