@@ -1,4 +1,4 @@
-package com.learn.hanjx.util.excel;
+package com.learn.hanjx.util.excel.column;
 
 import com.learn.hanjx.test.ABISHelper;
 import org.apache.commons.lang3.StringUtils;
@@ -19,7 +19,7 @@ import java.util.regex.Pattern;
 /**
  * 国际化列描述合并
  */
-public class ColumTest
+public class ColumI18Test
 {
     /**
      * 合并excel

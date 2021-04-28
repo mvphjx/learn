@@ -1,7 +1,6 @@
-package com.learn.hanjx.util.excel;
+package com.learn.hanjx.util.excel.column;
 
 import com.learn.hanjx.test.ABISHelper;
-import org.apache.poi.ss.usermodel.CellCopyPolicy;
 import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFRow;
@@ -13,12 +12,9 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 /**
  * 不同项目 列描述合并
@@ -37,6 +33,8 @@ public class ColumAibbsTest
     public static final String filePath = "test.xlsx";
 
     private Set<String> columNames = new HashSet<>();
+
+
 
     /**
      * 合并两个excel
@@ -87,7 +85,7 @@ public class ColumAibbsTest
         {
             return;
         }
-        System.out.println("要新增的列："+key);
+        System.out.println("要新增的列：" + key);
         XSSFSheet sheet = workbook.getSheetAt(0);
         int lastRowNum = sheet.getLastRowNum();
         XSSFRow rowAdd = sheet.createRow(lastRowNum + 1);
@@ -149,35 +147,4 @@ public class ColumAibbsTest
         return columNames;
     }
 
-    @Test
-    public void main() throws IOException
-    {
-        ColumAibbsTest.assertExcel(aibbs);
-    }
-
-    /**
-     * 校验列描述
-     *
-     * @return
-     */
-    public static void assertExcel(String path) throws IOException
-    {
-        XSSFWorkbook workbook_aibbs = new XSSFWorkbook(aibbs);
-        XSSFSheet sheet = workbook_aibbs.getSheetAt(0);
-        Set<String> set  = new HashSet<>();
-        int rowNums = sheet.getLastRowNum();
-        for (int i = 0; i <= rowNums; i++)
-        {
-            XSSFRow row = sheet.getRow(i);
-            XSSFCell tableNameCell = row.getCell(0);
-            XSSFCell columnNameCell = row.getCell(1);
-            XSSFCell columnDisplayNameCell = row.getCell(2);
-            String tableName = tableNameCell.getStringCellValue();
-            String columnName = columnNameCell.getStringCellValue();
-            String key = tableName+"|"+columnName;
-            if(!set.add(key)){
-                System.out.println("重复的列："+key);
-            }
-        }
-    }
 }
